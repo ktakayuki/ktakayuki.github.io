@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Takayuki Koike </title>
+<meta charset="shift-JIS">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+	});
+	//初期英語
+	$('.en').show();
+	$('.jp').hide();
+	//ページ上部へ戻る
+	$(".btn_top").click(function () {
+	    $('html,body').animate({ scrollTop: 0 }, 'fast');
+	      return false;
+	});
+})
+</script>
+
+<style type="text/css">
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+</style>
+
+
+</head>
+<body>
+<div class="jp" id="swichlangtoen" align="right"><a href="#">English Page</a></div>
+<div class="en" id="swichlangtoja" align="right"><a href="#">日本語ページはこちら</a></div>
+
+<p class="resizeimage">
+<div class="en">
+<img src="./koike_eng.png" alt="Takayuki Koike">
+</div>
+<div class="jp">
+<img src="./koike_kanji.png" alt="小池 貴之">
+</div>
+</p>
+
+<!--ここがタブ-->
+<div class="en">
+<ul class="tab" style="list-style:none;">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#papers">Papers &amp; Preprints</a></li>
+    <li><a href="#talks">Talks</a></li>
+    <li><a href="#cv">Curriculum Vitae</a></li>
+    <li><a href="#links">Links</a></li>
+</ul>
+</div>
+<div class="jp">
+<ul class="tab" style="list-style:none;">
+    <li><a href="#home">ホーム</a></li>
+    <li><a href="#schedule">今後の予定</a></li>
+    <li><a href="#papers">論文/プレプリント</a></li>
+    <li><a href="#talks">講演の履歴</a></li>
+    <li><a href="#cv">プロフィール</a></li>
+    <li><a href="#links">リンク</a></li>
+</ul>
+</div>
+
+
+<div class="content">
+    <div class="area" id="home">
+
+<div class="en">
+
+	<h2>News</h2>
+	
+	<ul>
+	    <li> </li>
+	</ul>
+	
+	<br>
+
+	<h2>Takayuki Koike</h2>
+	Graduate School of Mathematical Sciences, the University of Tokyo, 3-8-1, Komaba, Meguro-ku, Tokyo, 153-8914, Japan.<br>
+	<b>Email</b> : tkoike [at] ms.u-tokyo.ac.jp<br>
+	<b>Research field</b> : Complex geometry, Algebraic geometry. <br>
+	<b>Research interests </b> : Minimal singular metrics, Ueda theory. <br>
+	<br>
+	We are interested in singular Hermitian metrics of a (nef) line bundle <i>L</i> over a complex manifold, <br>
+	especially in <i>minimal singular metrics</i> of <i>L</i>, metrics of <i>L</i> with the mildest singularities among singular Hermitian metrics of <i>L</i> whose local weights are plurisubharmonic. 
+	<br>
+	We are also interested in Ueda theory, which is a theory on a flatness criterion around a smooth hypersurface of a certain type of topologically trivial holomorphic line bundles. 
+
+</div>
+
+<div class="jp">
+	
+	<h2>最近のこと</h2>
+	
+	<ul>
+	    <li>特に無し. </li>
+	</ul>
+	
+	<br>
+
+	<h2>小池 貴之 (こいけ たかゆき)</h2>
+	東京大学大学院数理科学研究科, 〒153-8914　東京都目黒区駒場3-8-1<br>
+	<b>Email</b> : tkoike [at] ms.u-tokyo.ac.jp<br>
+	<b>研究分野</b> : 複素幾何, 代数幾何.<br>
+	<b>興味 </b> : 極小特異エルミート計量, 上田理論. <br>
+	<br>
+	複素多様体上の（ネフ）直線束の極小特異エルミート計量に興味があります. <br>
+	直線束<i>L</i>の極小特異エルミート計量とは, <i>L</i>に入る半正曲率を持つ特異エルミート計量の内, 最も特異性が小さいもののことです. <br>
+	また, 位相的に自明な正則直線束の平坦性に関連して, 上田理論等の, コンパクト部分多様体近傍の複素解析の理論にも興味があります. 
+
+</div>
+
+    </div>
+    <div class="area" id="schedule">
+
+<div class="en">
+
+	<h2>Schedule</h2>
+	<ol>
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, MSJ Spring Meeting 2015, section of complex analysis, Meiji University, 24th March 2015.
+	</ol>
+
+</div>
+
+<div class="jp">
+
+	<h2>今後の予定</h2>
+	<ol>
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 日本数学会年会函数論分科会, 明治大学, 2015年3月24日.
+	</ol>
+
+</div>
+
+    </div>
+    <div class="area" id="papers">
+
+	<div class="en">
+
+        <h2>Papers &amp; Preprints</h2>
+	<h3>Papers</h3>
+	<ol>
+	<li id="1"> T. Koike, <i>Minimal singular metrics of a line bundle admitting no Zariski-decomposition</i>, to appear in Tohoku Math. J. (2), <a href="http://arxiv.org/abs/1304.1289">arXiv:1304.1289</a>.</li>
+	<li id="2"> T. Koike, <i>On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated</i>, to appear in Ann. Inst. Fourier (Grenoble), <a href="http://arxiv.org/abs/1312.6402">arXiv:1312.6402</a>.</li>
+	<li id="3"> T. Koike, <i>On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles</i>, to appear in Kyoto J. Math., <a href="http://arxiv.org/abs/1405.4698">arXiv:1405.4698</a>.</li>
+	<li id="4"> Y. Tanizaki, T. Koike, <i>Real-time Feynman path integral with Picard--Lefschetz theory and its applications to quantum tunneling</i>, <a href="http://www.sciencedirect.com/science/article/pii/S0003491614002632">Ann. Physics <b>351</b> (2014), 250--274</a>, <a href="http://arxiv.org/abs/1406.2386">arXiv:1406.2386</a>.</li>
+	</ol>
+	
+	<h3>Preprints</h3>
+	<ol>
+	<li id="1"> T. Koike, <i>Toward a higher codimensional Ueda theory</i>, <a href="http://arxiv.org/abs/1412.2354">arXiv:1412.2354</a>.</li>
+	</ol>
+
+	</div>
+
+	<div class="jp">
+
+        <h2>論文/プレプリント</h2>
+	<h3>論文</h3>
+	<ol>
+	<li id="1"> T. Koike, <i>Minimal singular metrics of a line bundle admitting no Zariski-decomposition</i>, to appear in Tohoku Math. J. (2), <a href="http://arxiv.org/abs/1304.1289">arXiv:1304.1289</a>.</li>
+	<li id="2"> T. Koike, <i>On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated</i>, to appear in Ann. Inst. Fourier (Grenoble), <a href="http://arxiv.org/abs/1312.6402">arXiv:1312.6402</a>.</li>
+	<li id="3"> T. Koike, <i>On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles</i>, to appear in Kyoto J. Math., <a href="http://arxiv.org/abs/1405.4698">arXiv:1405.4698</a>.</li>
+	<li id="4"> Y. Tanizaki, T. Koike, <i>Real-time Feynman path integral with Picard--Lefschetz theory and its applications to quantum tunneling</i>, <a href="http://www.sciencedirect.com/science/article/pii/S0003491614002632">Ann. Physics <b>351</b> (2014), 250--274</a>, <a href="http://arxiv.org/abs/1406.2386">arXiv:1406.2386</a>.</li>
+	</ol>
+	
+	<h3>プレプリント</h3>
+	<ol>
+	<li id="1"> T. Koike, <i>Toward a higher codimensional Ueda theory</i>, <a href="http://arxiv.org/abs/1412.2354">arXiv:1412.2354</a>.</li>
+	</ol>
+
+	</div>
+
+    </div>
+    <div class="area" id="talks">
+
+	<div class="en">
+
+        <h2>Talks</h2>
+
+	<h3>Conference</h3>
+	<ol>
+	<li> Notes on the conjecture of Demailly and Kollar, Complex variables summer seminar, Mie, Aug. 2012.
+	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, MSJ Spring Meeting, Kyoto University, Mar. 2013.
+	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, Younger generations in Algebraic and Complex geometry III, Nagasaki, Jan. 2014.
+	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, MSJ Spring Meeting, Gakushuin University, Mar. 2014.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Asymptotic aspects of complex and algebraic geometry, the University of Milano-Bicocca, Italy, Jun. 2014.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Young Mathematician Workshop on Several Complex Variables 2014, Pohang University of Science and Technology, Korea, Aug. 2014.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, The 20th Symposium on Complex Geometry, Sugadaira, Nov. 2014.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Complex variables winter seminar, Kanazawa University, Dec. 2014.
+	<li> Toward a higher codimensional Ueda theory, Analytical aspects of the dbar equation, Nagoya University, Feb. 2015.
+	</ol>
+	
+	<h3>Seminar</h3>
+	<ol>
+	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, Tokuiten seminar, Nihon University, Feb. 2013.
+	<li> Singular holomorphic foliations by curves whose canonical rings have innitely generated section rings (poster presentation), Foliation theory in algebraic geometry, Simons Foundation, US, Sep. 2013.
+	<li> Minimal singular metrics of a line bundle admitting no Zariski decomposition, Seminar on Geometric Complex Analysis, the University of Tokyo, Oct. 2013.
+	<li> Minimal singular metrics of some line bundles with innitely generated section rings, Algebraic Geometry Seminar, the University of Tokyo, Nov. 2013.
+	<li> On a relationship between semi-positivity of a nef line bundle and neighborhoods of the stable base locus, Kaiseki kikagaku seminar, Nagoya University, Apr. 2014.
+	<li> Real-time Feynman path integral with Picard-Lefschetz theory and its applications to quantum tunneling, Komaba particle physics seminar, the University of Tokyo, Jul. 2014.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, MAGIC seminor, Imperial College London, UK, Sep. 2014.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles,  Algebraic Geometry Seminar, Kyoto University, Oct. 2014.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, Seminar on Geometric Complex Analysis, the University of Tokyo, Oct. 2014.
+	</ol>
+
+	</div>
+
+	<div class="jp">
+
+        <h2>講演の履歴</h2>
+
+	<h3>研究集会</h3>
+	<ol>
+	<li> Notes on the conjecture of Demailly and Kollar, 第47回函数論サマーセミナー, かんぽの宿　鳥羽, 三重, 2012年8月.
+	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, 日本数学会年会函数論分科会, 京都大学, 2013年3月.
+	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, 第三回若手代数複素幾何研究集会, 松藤プラザ, 長崎市, 2014年1月.
+	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, 日本数学会年会函数論分科会, 学習院大学, 2014年3月.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Asymptotic aspects of complex and algebraic geometry, ミラノ-ビコッカ大学, イタリア共和国, 2014年6月.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Young Mathematician Workshop on Several Complex Variables 2014, 浦項工科大学校, 韓国, 2014年8月.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 複素幾何シンポジウム, プチホテルゾンタック, 菅平, 2014年11月.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, 多変数関数論冬セミナー, 金沢大学, 2014年12月.
+	<li> Toward a higher codimensional Ueda theory, Analytical aspects of the dbar equation, 名古屋大学, 2015年2月.
+	</ol>
+	
+	<h3>セミナー等</h3>
+	<ol>
+	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, 特異点セミナー, 日本大学, 2013年2月.
+	<li> Singular holomorphic foliations by curves whose canonical rings have innitely generated section rings (ポスター発表), Foliation theory in algebraic geometry, Simons Foundation, アメリカ合衆国, 2013年9月.
+	<li> Minimal singular metrics of a line bundle admitting no Zariski decomposition, 複素解析幾何セミナー, 東大数理, 2013年10月.
+	<li> Minimal singular metrics of some line bundles with innitely generated section rings, 東大代数幾何学セミナー, 東大数理, 2013年11月.
+	<li> On a relationship between semi-positivity of a nef line bundle and neighborhoods of the stable base locus, 解析幾何学セミナー, 名古屋大学, 2014年4月.
+	<li> Real-time Feynman path integral with Picard-Lefschetz theory and its applications to quantum tunneling, 駒場素粒子論セミナー, 東京大学, 2014年7月.
+	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, MAGIC seminor, インペリアルカレッジ・ロンドン, 英国, 2014年9月.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 代数幾何学セミナー, 京都大学, 2014年10月.
+	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 複素解析幾何セミナー, 東大数理, 2014年10月.
+	</ol>
+
+	</div>
+	
+    </div>
+    <div class="area" id="cv">
+
+	<div class="en">
+
+
+	<h2>Curriculum Vitae</h2>
+
+	<ul>
+		<li>JSPS Research Fellow (DC1), Graduate School of Mathematical Sciences, the University of Tokyo. </li>
+		<li>Born on July 5, 1988 in Tokyo and grew up in Tokyo.</li>
+	</ul>
+
+	<h3>Education</h3>
+	<table>
+	<tr>
+	<th> Mar. 2011 </th>
+	<td>B.S. in Mathematics, the University of Tokyo. </td>
+	</tr>
+	<tr>
+	<th> Mar. 2013 </th> 
+	<td>M.S. in Mathematical Sciences, the University of Tokyo. </td>
+	</tr>
+	<!--
+	<tr>
+	<th> Mar. 2015 </th> 
+	<td>Ph.D. in Mathematical Sciences, the University of Tokyo (Advisor: Professor Shigeharu Takayama). </td>
+	</tr>
+	 -->
+	</table>
+
+	<h3>Employment &amp; Fellowships</h3>
+	<table>
+	<tr>
+	<th>Apr. 2013--Mar. 2016</th>
+	<td>JSPS Research Fellow (DC1, 25-2869).</td>
+	</tr>
+	<tr>
+	<th>Nov. 2012--Mar. 2016</th>
+	<td>FMSP course student, Leading Graduate Course for Frontiers of Mathematical Sciences and Physics.</td>
+	</tr>
+	</table>
+	
+	<h3>Professional Societies</h3>
+	<ul>
+		<li>The Mathematical Society of Japan.</li>
+	</ul>
+
+	<h3>Teaching</h3>
+	<table>
+	<tr>
+	<th></th>
+	<td></td>
+	</tr>
+	</table>
+
+	</div>
+	
+
+	<div class="jp">
+
+	<ul>
+		<li>日本学術振興会特別研究員(DC1), 東京大学大学院数理科学研究科. </li>
+		<li>昭和63年7月5日生まれ.</li>
+	</ul>
+
+	<h3>学歴</h3>
+	<table>
+	<tr>
+	<th>平成19年3月</th>
+	<td>麻布高等学校卒業. </td>
+	</tr>
+	<tr>
+	<th>平成23年3月</th>
+	<td>東京大学理学部数学科卒業. </td>
+	</tr>
+	<tr>
+	<th>平成25年3月</th> 
+	<td>東京大学大学院数理科学研究科数理科学専攻修士課程修了. </td>
+	</tr>
+	<!--
+	<tr>
+	<th>平成27年3月</th> 
+	<td>東京大学大学院数理科学研究科数理科学専攻博士課程修了 (指導教員：高山 茂晴教授). </td>
+	</tr>
+	 -->
+	</table>
+
+	<h3>職歴/フェローシップ</h3>
+	<table>
+	<tr>
+	<th>平成25年4月--平成28年3月</th>
+	<td>日本学術振興会特別研究員(DC1, 25-2869).</td>
+	</tr>
+	<tr>
+	<th>平成24年11月--平成28年3月</th>
+	<td>FMSPコース生, Leading Graduate Course for Frontiers of Mathematical Sciences and Physics.</td>
+	</tr>
+	</table>
+
+	<h3>所属学会</h3>
+	<ul>
+		<li>日本数学会.</li>
+	</ul>
+
+	<h3>教育経験</h3>
+	<table>
+	<tr>
+	<th></th>
+	<td></td>
+	</tr>
+	</table>
+
+	</div>
+
+    </div>
+    <div class="area" id="links">
+
+	<div class="en">
+
+        <h2>Links</h2>
+
+	<h3>Useful links</h3>
+	  <a href="http://www.ms.u-tokyo.ac.jp/">Graduate School of Mathematical Sciences</a><br>
+	  <a href="http://arxiv.org/">arXiv</a> <br>
+	  <a href="http://www.ams.org/mathscinet/">MathSciNet</a><br>
+	  <a href="https://zbmath.org/">zbMATH</a> <br>
+
+	<h3>Seminars and Conferences</h3>
+	  <a href="http://math.stanford.edu/~vakil/conferences.html">Upcoming conferences in algebraic geometry</a> (by Ravi Vakil)<br>
+	  <a href="http://www.ms.u-tokyo.ac.jp/seminar/geocomp/">Seminar on Geometric Complex Analysis </a>@ University of Tokyo <br>
+	  <a href="http://www.ms.u-tokyo.ac.jp/seminar/algegeo/index.html">Algebraic geometry seminar </a>@ University of Tokyo <br>
+		
+	<h3>Mathematicians</h3>
+
+    	</div>
+
+	<div class="jp">
+        <h2>リンク</h2>
+
+	<h3>Useful links</h3>
+	  <a href="http://www.ms.u-tokyo.ac.jp/">東京大学数理科学研究科</a><br>
+	  <a href="http://arxiv.org/">arXiv</a> <br>
+	  <a href="http://www.ams.org/mathscinet/">MathSciNet</a><br>
+	  <a href="https://zbmath.org/">zbMATH</a> <br>
+
+	<h3>Seminars and Conferences</h3>
+	  <a href="http://math.stanford.edu/~vakil/conferences.html">Upcoming conferences in algebraic geometry</a> (by Ravi Vakil)<br>
+	  <a href="http://www.ms.u-tokyo.ac.jp/seminar/geocomp/">東大・複素解析幾何セミナー</a><br>
+	  <a href="http://www.ms.u-tokyo.ac.jp/seminar/algegeo/index.html">東大・代数幾何セミナー</a><br>
+		
+	<h3>Mathematicians</h3>
+
+    	</div>
+
+</div>
+
+<br><br>
+
+<div class="en">
+<div class="btn_top" align="right"><a href="#">Back to the top</a></div>
+<br><hr>
+<p>Updated on March 3, 2015. </p>
+<p>Takayuki KOIKE (tkoike [at] ms.u-tokyo.ac.jp), Graduate School of Mathematical Sciences, the University of Tokyo, 3-8-1, Komaba, Meguro-ku, Tokyo, 153-8914, Japan. </p>
+</div>
+
+<div class="jp">
+<div class="btn_top" align="right"><a href="#">ページ上部へ</a></div>
+<br><hr>
+<p>最終更新日：2015年3月3日.  </p>
+<p>小池 貴之 (tkoike [at] ms.u-tokyo.ac.jp), 〒153-8914　東京都目黒区駒場3-8-1　東京大学大学院数理科学研究科. </p>
+</div>
+
+
+<script>
+//言語切り替え
+$("#swichlangtoen").click(function(){
+  $('.en').show();$('.jp').hide();
+});
+$("#swichlangtoja").click(function(){
+  $('.jp').show();$('.en').hide();
+});
+</script>
+
+</body>
+</html>

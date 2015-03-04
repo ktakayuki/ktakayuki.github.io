@@ -3,3 +3,18 @@
 <h3>備忘録</h3>
 ・・・
 
+<h3>外部読み込み実験</h3>
+<div id="container"></div>
+<script type="text/javascript" src="./jquery.xdomainajax.js"></script>
+<script type=text/javascript>
+$(function() {
+$.ajax({
+url: 'https://blogtter.herokuapp.com/',
+type: 'GET',
+success: function(data) {
+$('#container').html(data.responseText);
+$table = $('table', $('#container'));
+}
+});
+});
+</script> 

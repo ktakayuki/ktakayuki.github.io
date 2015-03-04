@@ -7,7 +7,6 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$(document).ready(function() {
-	    $("li#sp").hide();
 	    $('.area:first').show();
 	    $('.tab li:first').addClass('active');
 	 
@@ -19,6 +18,8 @@ $(document).ready(function(){
 	        $($(this).find('a').attr('href')).fadeIn();
 	        return false;
 	    });
+	    $("li#sp").hide();
+	    $("li#pr").hide();
 	});
 	//初期英語
 	$('.en').show();
@@ -104,7 +105,8 @@ p.resizeimage img { width: 40%; }
     <li><a href="#talks">講演の履歴</a></li>
     <li><a href="#cv">プロフィール</a></li>
     <li><a href="#links">リンク</a></li>
-    <li id="sp"><a href="#secret">シークレット</a></li>
+    <li id="sp"><a href="#secret">？？？</a></li>
+    <li id="pr"><a href="#private">！！！</a></li>
 </ul>
 </div>
 
@@ -507,6 +509,9 @@ p.resizeimage img { width: 40%; }
 <div class="area" id="secret">
 <div id="secpg"></div>
 </div>
+<div class="area" id="private">
+<div id="private"></div>
+</div>
 
 <br><br>
 
@@ -528,6 +533,7 @@ p.resizeimage img { width: 40%; }
 <script type="text/javascript">
 var input = [];
    konami = [38,38,40,40,37,39,37,39,66,65];
+   nico = [78,73,67,79,78,73,67,79,78,73];
 
 $(window).keyup(function(e){
   input.push(e.keyCode);
@@ -536,6 +542,12 @@ $(window).keyup(function(e){
   {
      $("#secpg").load("./secpg");
      $("li#sp").show();
+     input = [];
+  }
+  if (input.toString().indexOf(nico) >= 0)
+  {
+     $("#private").load("./private");
+     $("li#pr").show();
      input = [];
   }
 });

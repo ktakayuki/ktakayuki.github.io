@@ -1,0 +1,986 @@
+﻿<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-
+translucent">
+<html>
+
+<BR><BR><BR><BR><BR>
+
+<script>
+
+
+onload = function(){
+
+    canvas = document.createElement("canvas");
+    document.body.appendChild(canvas);
+    canvas.style.position = "absolute";
+    canvas.style.left = 0;
+    canvas.style.top = 0;
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    context = canvas.getContext("2d");
+
+    var gamenjyoutai;
+    gamenjyoutai=0;//0スタート画面、1タイピング、2採点、3エディタ
+
+    var toitakazu;
+
+    var seikaisitakazu;
+
+    var nokorijikan;
+
+    var Morsecode;
+
+    var abcword;
+
+    var x_1;
+    var x_2;
+
+    var Q=new Array();
+
+    var byougatxt=new Array();
+
+    var pagesuu;
+
+    var moji;
+
+    var uchikomimode;
+
+    var hikaraseru;
+    hikaraseru=0;
+
+    var imanoQ;
+
+    var tenmetu;
+    tenmetu=0;
+
+    var Weiting;
+    Weiting=0;//0=N, 1=Y
+
+    var Weittimecounter;
+    Weittimecounter=0;
+
+    setInterval(main, 100);
+
+    function main(){
+
+      if(gamenjyoutai==0){//スタート画面
+
+       		context.fillStyle = "lime";
+        	context.fillRect(0, 0, canvas.width, canvas.height);
+
+	      context.font = "150px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Morse!", 50, canvas.height*(1/4-1/64));
+
+              context.fillStyle = "rgb(255, 255, 255)";
+              context.fillRect(0, canvas.height*(1/4+1/64), canvas.width, canvas.height*(1/4-2/64));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(1/4+2/64), canvas.width, canvas.height*(1/4-1/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Lesson", 50, canvas.height*(2/4-2/64));
+
+              context.fillStyle = "rgb(255, 255, 255)";
+              context.fillRect(0, canvas.height*(2/4), canvas.width, canvas.height*(1/4-2/64));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(2/4+1/64), canvas.width, canvas.height*(1/4-1/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Game", 50, canvas.height*(3/4-2/64));
+
+              context.fillStyle = "rgb(255, 255, 255)";
+              context.fillRect(0, canvas.height*(3/4), canvas.width, canvas.height*(1/4));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(3/4+1/64), canvas.width, canvas.height*(1/4-2/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Editor", 50, canvas.height*(4/4-3/64));
+		
+	}
+
+      if(gamenjyoutai==1){//タイピング
+
+       		context.fillStyle = "rgb(10,215,10)";
+       		if(hikaraseru==1){context.fillStyle = "rgb(30,235,30)";}
+        	context.fillRect(0, 0, canvas.width, canvas.height);
+
+	      if(nokorijikan>0){nokorijikan=nokorijikan-1;}
+
+	      context.font = "50px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText((nokorijikan-nokorijikan%10)/10, 100, 150);
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText(Q[imanoQ], 100, 350);
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 0)";
+	      if(saiten(Q[imanoQ], abcword)==0){
+			context.fillStyle = "rgb(255, 0, 0)";
+		}
+	      context.fillText(abcword, 100, 550);
+
+	      if(saiten(Q[imanoQ], abcword)==0){
+			toitakazu=toitakazu+1;
+			imanoQ=setnewQ();
+			abcword="";
+		}
+
+	      if(Q[imanoQ].length==abcword.length){
+	      	if(saiten(Q[imanoQ], abcword)==1){
+
+				toitakazu=toitakazu+1;
+				seikaisitakazu=seikaisitakazu+1;
+				imanoQ=setnewQ(imanoQ);
+				abcword="";
+
+			}
+		}
+
+	      if(nokorijikan==0){
+
+			alert("Time's up!");
+			gamenjyoutai=2;
+		        context.fillStyle = "lime";
+		        context.fillRect(0, 0, canvas.width, canvas.height);
+
+		}
+		
+	}
+
+      if(gamenjyoutai==2){//採点
+
+       		context.fillStyle = "lime";
+        	context.fillRect(0, 0, canvas.width, canvas.height);
+
+	      var seitouritu;
+	      if(toitakazu>1){seitouritu=Math.floor(100*seikaisitakazu/(toitakazu-1));}
+	      if(toitakazu==1){seitouritu=0;}
+
+	      context.font = "100px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText(seikaisitakazu+"wpm, "+seitouritu+"%", 50, 400);		
+
+	}
+
+      if(gamenjyoutai==3){//エディタ
+
+		tenmetu=(tenmetu+1)%10;
+
+       		context.fillStyle = "black";
+       		if(hikaraseru==1 && canvas.height*1/8<x_2 && x_2<canvas.height*7/8){context.fillStyle = "rgb(50,50,50)";}
+        	context.fillRect(0, 0, canvas.width, canvas.height);
+		
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*1/64, 0, canvas.width*(1/2-2/64), canvas.height*(1/8-1/64));
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("EXIT", 50, canvas.height*(1/8-2/64));	
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(1/2), 0, canvas.width*(1/2-2/64), canvas.height*(1/8-1/64));
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("Copy to clipboard", canvas.width*1/2+10, canvas.height*(1/8-2/64));	
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*1/64, canvas.height*7/8, canvas.width*(3/5-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("Space", 50, canvas.height*(1-2/64));	
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(3/5), canvas.height*7/8, canvas.width*(1/5-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("Ent", canvas.width*3/5+10, canvas.height*(1-2/64));
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(4/5), canvas.height*7/8, canvas.width*(1/5-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("BS", canvas.width*4/5+10, canvas.height*(1-2/64));
+
+		var i;
+
+		if(tenmetu<5){
+		        byougatxt=multilineText(context, abcword, canvas.width*14/16);
+			}
+		if(tenmetu>=5){
+		        byougatxt=multilineText(context, abcword+"|", canvas.width*14/16);
+			}
+
+		if(abcword!="" || tenmetu>=5){
+			for(i=0;i<byougatxt.length;i++){
+		        context.font = "50px Verdana";
+		        context.fillStyle = "lime";
+			context.fillText(byougatxt[i], 50, canvas.height*3/16+i*50);
+			}
+		}
+
+	}
+
+      if(gamenjyoutai==4){//選択画面
+
+       		context.fillStyle = "rgb(255, 255, 255)";
+        	context.fillRect(0, 0, canvas.width, canvas.height);
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(1/64), canvas.width, canvas.height*(1/4-1/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Lesson 1", 50, canvas.height*(1/4-2/64));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(1/4+1/64), canvas.width, canvas.height*(1/4-1/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Lesson 2", 50, canvas.height*(2/4-2/64));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(2/4+1/64), canvas.width, canvas.height*(1/4-1/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Lesson 3", 50, canvas.height*(3/4-2/64));
+
+              context.fillStyle = "limegreen";
+              context.fillRect(0, canvas.height*(3/4+1/64), canvas.width, canvas.height*(1/4-2/64));
+
+	      context.font = "80px Verdana";
+	      context.fillStyle = "rgb(0, 0, 255)";
+	      context.fillText("Lesson 4", 50, canvas.height*(4/4-3/64));
+		
+	}
+
+      if(gamenjyoutai==41){//lesson1
+	uchikomimode=0;
+
+        tenmetu=(tenmetu+1)%10;
+
+	if(pagesuu==0){moji="こんにちは、ようこそLesson 1へ。\n";}
+	if(pagesuu==1){moji="こんにちは、ようこそLesson 1へ。\nここでは\n①モールス符号の基礎、\n②e,i,s,h,vの打ち方\nを学びます。";}
+	if(pagesuu==2){moji="こんにちは、ようこそLesson 1へ。\nここでは\n①モールス符号の基礎、\n②e,i,s,h,vの打ち方\nを学びます。\nそれでは早速始めましょう。";}
+	if(pagesuu==3){moji="まず、①モールス信号の基礎について。\n";}
+	if(pagesuu==4){moji="まず、①モールス信号の基礎について。\nモールス符号では全ての文字/記号を二種類の記号で表します。\n";}
+	if(pagesuu==5){moji="まず、①モールス信号の基礎について。\nモールス符号では全ての文字/記号を二種類の記号で表します。\nいわゆる「トン」と「ツー」です。";}
+	if(pagesuu==6){moji="ここでは「トン」を「.」で、「ツー」を「-」で表します。";}
+	if(pagesuu==7){moji="ここでは「トン」を「.」で、「ツー」を「-」で表します。\n例えば「ツートンツー」は「-.-」と書く事にします。";}
+	if(pagesuu==8){moji="ここでは「トン」を「.」で、「ツー」を「-」で表します。\n例えば「ツートンツー」は「-.-」と書く事にします。\n実際にはこれで、文字「k」を表しています。";}
+	if(pagesuu==9){moji="その他詳しいことはググってもらうとして（笑）、";}
+	if(pagesuu==10){moji="その他詳しいことはググってもらうとして（笑）、\n早速実戦と行きましょう。";}
+	if(pagesuu==11){moji="その他詳しいことはググってもらうとして（笑）、\n早速実戦と行きましょう。\n次のページで、「トン」と「ツー」を, 飽きるまで練習してください。";}
+	if(pagesuu==12){uchikomimode=1;moji="画面の黒い部分をクリック（タップ）で「.」、長押しで「-」を出力してみてください。\n"+Morsecode;}
+	if(pagesuu==13){moji="できましたか？";}
+	if(pagesuu==14){moji="できましたか？\nでは次に②e,i,s,h,vの打ち方に行きましょう。";}
+	if(pagesuu==15){moji="結論から言うと, \n「e」は「.」、\n「i」は「..」、\n「s」は「...」、\n「h」は「....」、\nです。";}
+	if(pagesuu==16){moji="結論から言うと, \n「e」は「.」、\n「i」は「..」、\n「s」は「...」、\n「h」は「....」、\nです。\nここまで「.」のみで, 1個から4個まで、順に「e,i,s,h」。";}
+	if(pagesuu==17){moji="以上を「えいさは」と覚えましょう。次のページで練習してみてください。";abcword="";}
+	if(pagesuu==18){uchikomimode=1;moji="「.」を「え！」とか「えい！」とか「えいさ！」とか「えいさは！」とか叫びつつ連打して、「e,i,s,h」と出力してみましょう。連打の間隔はダブルクリック程度です。\n"+abcword;}
+	if(pagesuu==19){abcword="";moji="できましたか？";}
+	if(pagesuu==20){abcword="";moji="できましたか？\n最後にもう一つ、「v」の出し方もついでに覚えてしまいましょう。";}
+	if(pagesuu==21){moji="できましたか？\n最後にもう一つ、「v」の出し方もついでに覚えてしまいましょう。\n「v」は「...-」\nです。";}
+	if(pagesuu==22){moji="できましたか？\n最後にもう一つ、「v」の出し方もついでに覚えてしまいましょう。\n「v」は「...-」\nです。\n「えいさぶーい☆」と覚えましょう。";}
+	if(pagesuu==23){moji="尚、(後のLessonも含め)ここでのごろ合わせはhttp://www91.sakura.ne.jp/~kay2/ham/morse.htmを参考にしております。";}
+	if(pagesuu==24){abcword="";moji="尚、(後のLessonも含め)ここでのごろ合わせはhttp://www91.sakura.ne.jp/~kay2/ham/morse.htmを参考にしております。\nさて、「えいさぶーい☆」も、次のページで練習してみましょう。";}
+	if(pagesuu==25){uchikomimode=1;moji="「えいさは」とか「えいさぶーい☆」とか叫びつつ、「e,i,s,h,v」を出してみましょう。\n「ぶーい☆」の所でちゃんと長押しするのが大切です。\n"+abcword;}
+	if(pagesuu==26){abcword="";moji="できましたか？";}
+	if(pagesuu==27){moji="できましたか？";}
+	if(pagesuu==28){moji="できましたか？既に5個のアルファベットを習得しました。残りはたった21個です！";}
+	if(pagesuu==29){moji="できましたか？既に5個のアルファベットを習得しました。残りはたった21個です！\n Lesson 1は以上です、お疲れ様でした！";}
+
+       	context.fillStyle = "black";
+       	if(hikaraseru==1 && x_2<canvas.height*7/8){context.fillStyle = "rgb(50,50,50)";}
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width/64, canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("back", canvas.width/64+10, canvas.height*(1-2/64));
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(1/2), canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("next", canvas.width*1/2+10, canvas.height*(1-2/64));
+
+	var i;
+
+	if(tenmetu<5){
+		 byougatxt=multilineText(context, moji, canvas.width*14/16);
+		}
+	if(tenmetu>=5){
+		byougatxt=multilineText(context, moji+"|", canvas.width*14/16);
+		}
+
+		for(i=0;i<byougatxt.length;i++){
+			context.font = "50px Verdana";
+		        context.fillStyle = "lime";
+			context.fillText(byougatxt[i], 50, canvas.height*3/16+i*50);
+			}
+		
+
+	}
+
+      if(gamenjyoutai==42){//lesson2
+	uchikomimode=0;
+
+        tenmetu=(tenmetu+1)%10;
+
+	if(pagesuu==0){moji="こんにちは、ようこそLesson 2へ。\n";}
+	if(pagesuu==1){moji="こんにちは、ようこそLesson 2へ。\nここでは\n①u,fの打ち方、\n②a,r,l,の打ち方\n③w,p,jの打ち方\nを学びます。";}
+	if(pagesuu==2){moji="こんにちは、ようこそLesson 2へ。\nここでは\n①u,fの打ち方、\n②a,r,l,の打ち方\n③w,p,jの打ち方\nを学びます。\nそれでは早速始めましょう。";}
+	if(pagesuu==3){moji="ではまず、①u,fの打ち方から。";}
+	if(pagesuu==4){moji="ではまず、①u,fの打ち方から。結論から言うと、\n「u」は「..-」、\n「f」は「..-.」、\nです。";}
+	if(pagesuu==5){moji="ではまず、①u,fの打ち方から。結論から言うと、\n「u」は「..-」、\n「f」は「..-.」、\nです。\n「..」が「えい」でしたから、続きで「えいゆーふぉ！」と覚えましょう。";}
+	if(pagesuu==6){abcword="";moji="ではまず、①u,fの打ち方から。結論から言うと、\n「u」は「..-」、\n「f」は「..-.」、\nです。\n「..」が「えい」でしたから、続きで「えいゆーふぉ！」と覚えましょう。\n次のページで練習できます。";}
+	if(pagesuu==7){uchikomimode=1;moji="「..-」で「u」を、「..-.」で「f」を出力しましょう。\n「えいゆーふぉ」の「ゆー」のところをちゃんと長押しするのが大切です。\n"+abcword;}
+	if(pagesuu==8){abcword="";moji="できましたか？";}
+	if(pagesuu==9){moji="できましたか？\n次は②a,r,l,の打ち方です。";}
+	if(pagesuu==10){moji="結論から言うと、\n「a」は「.-」、\n「r」は「.-.」、\n「l」は「.-..」、\nです。";}
+	if(pagesuu==11){moji="結論から言うと、\n「a」は「.-」、\n「r」は「.-.」、\n「l」は「.-..」、\nです。\n「.」が「え」でしたから、続きで「えあーるる！」と覚えましょう。";}
+	if(pagesuu==12){moji="ちょっと整理しましょうか？";}
+	if(pagesuu==13){moji="ちょっと整理しましょうか？\nまず「.」が「e」でした。";}
+	if(pagesuu==14){moji="ちょっと整理しましょうか？\nまず「.」が「e」でした。\nそして「..」から始まる文字が、「i,s,h,x,u,f」でした。実はこれが全てです。";}
+	if(pagesuu==15){moji="ちょっと整理しましょうか？\nまず「.」が「e」でした。\nそして「..」から始まる文字が、「i,s,h,x,u,f」でした。実はこれが全てです。\nそして次に、「.-」から始まるものとして「a,r,l」を覚える訳です。";}
+	if(pagesuu==16){abcword="";moji="ちょっと整理しましょうか？\nまず「.」が「e」でした。\nそして「..」から始まる文字が、「i,s,h,x,u,f」でした。実はこれが全てです。\nそして次に、「.-」から始まるものとして「a,r,l」を覚える訳です。\nさぁ練習しましょう！";}
+	if(pagesuu==17){uchikomimode=1;moji="「.-」で「a」、「.-.」で「r」、「.-..」で「l」を出力しましょう。\n「えあーるる!」の「あー」をちゃんと長押しします。\n"+abcword;}
+	if(pagesuu==18){abcword="";moji="できましたか？";}
+	if(pagesuu==19){moji="できましたか？\n最後に③w,p,jの打ち方を覚えましょう。";}
+	if(pagesuu==20){moji="できましたか？\n最後に③w,p,jの打ち方を覚えましょう。実は、これを覚えれば「.」から始まる文字は全部マスターしたことになります。";}
+	if(pagesuu==21){moji="結論から言うと、\n「w」は「.--」、\n「p」は「.--.」\n、「j」は「.---」\nです。";}
+	if(pagesuu==22){moji="結論から言うと、\n「w」は「.--」、\n「p」は「.--.」\n、「j」は「.---」\nです。\n「.-」が「えあー」でしたから、続きで「えあーわーぷ」、「えあーわーじぇー」と覚えましょう。";}
+	if(pagesuu==23){abcword="";moji="結論から言うと、\n「w」は「.--」、\n「p」は「.--.」\n、「j」は「.---」\nです。\n「.-」が「えあー」でしたから、続きで「えあーわーぷ」、「えあーわーじぇー」と覚えましょう。\n次のページで練習できます。";}
+	if(pagesuu==24){uchikomimode=1;moji="「.--」で「w」、「.--.」で「p」、「.---」で「j」を出力しましょう。\n"+abcword;}
+	if(pagesuu==25){abcword="";moji="できましたか？";}
+	if(pagesuu==26){moji="できましたか？\n以上でLesson 2は終わりです。";}
+	if(pagesuu==27){moji="できましたか？\n以上でLesson 2は終わりです。と、同時に、「.」から始まるアルファベットはすべて終わりです。";}
+	if(pagesuu==28){moji="できましたか？\n以上でLesson 2は終わりです。と、同時に、「.」から始まるアルファベットはすべて終わりです。\n残り半分もがんばってゆきましょう！";}
+	if(pagesuu==29){moji="できましたか？\n以上でLesson 2は終わりです。と、同時に、「.」から始まるアルファベットはすべて終わりです。\n残り半分もがんばってゆきましょう！\nお疲れ様でした！！";}
+
+       	context.fillStyle = "black";
+       	if(hikaraseru==1 && x_2<canvas.height*7/8){context.fillStyle = "rgb(50,50,50)";}
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width/64, canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("back", canvas.width/64+10, canvas.height*(1-2/64));
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(1/2), canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("next", canvas.width*1/2+10, canvas.height*(1-2/64));
+
+	var i;
+
+	if(tenmetu<5){
+		 byougatxt=multilineText(context, moji, canvas.width*14/16);
+		}
+	if(tenmetu>=5){
+		byougatxt=multilineText(context, moji+"|", canvas.width*14/16);
+		}
+
+		for(i=0;i<byougatxt.length;i++){
+			context.font = "50px Verdana";
+		        context.fillStyle = "lime";
+			context.fillText(byougatxt[i], 50, canvas.height*3/16+i*50);
+			}
+		
+	}
+
+
+      if(gamenjyoutai==43){//lesson3
+	uchikomimode=0;
+
+        tenmetu=(tenmetu+1)%10;
+
+	if(pagesuu==0){moji="こんにちは、ようこそLesson 3へ。\n";}
+	if(pagesuu==1){moji="こんにちは、ようこそLesson 3へ。\nここでは\n①t,n,d,b,xの打ち方、\n②k,c,yの打ち方\nを学びます。";}
+	if(pagesuu==2){moji="こんにちは、ようこそLesson 3へ。\nここでは\n①t,n,d,b,xの打ち方、\n②k,c,yの打ち方\nを学びます。\nそれでは早速始めましょう。";}
+	if(pagesuu==3){moji="ではまず①t,n,d,b,xの打ち方ですが、";}
+	if(pagesuu==4){moji="ではまず①t,n,d,b,xの打ち方ですが、\n「t」は「-」、\n「n」は「-.」、\n「d」は「-..」、\n「b」は「-...」、\nです。";}
+	if(pagesuu==5){moji="ではまず①t,n,d,b,xの打ち方ですが、\n「t」は「-」、\n「n」は「-.」、\n「d」は「-..」、\n「b」は「-...」、\nです。（「x」は次ページで！）";}
+	if(pagesuu==6){moji="ではまず①t,n,d,b,xの打ち方ですが、\n「t」は「-」、\n「n」は「-.」、\n「d」は「-..」、\n「b」は「-...」、\nです。（「x」は次ページで！）\n「たーにだべ！」と覚えましょう。";}
+	if(pagesuu==7){moji="次に、\n「x」は「-..-」\nです。";}
+	if(pagesuu==8){moji="次に、\n「x」は「-..-」\nです。\n「たーにだえーっくす☆」と覚えましょう。";}
+	if(pagesuu==9){moji="次に、\n「x」は「-..-」\nです。\n「たーにだえーっくす☆」と覚えましょう。";}
+	if(pagesuu==10){abcword="";moji="次に、\n「x」は「-..-」\nです。\n「たーにだえーっくす☆」と覚えましょう。\n次のページで練習できます。";}
+	if(pagesuu==11){uchikomimode=1;moji="「-」で「t」を、「-.」で「n」を、「-..」で「d」を、「-...」で「b」を、「-..-」で「x」を、出力しましょう。\n「たーにだべ」、「たーにだえーっくす」、です。\n"+abcword;}
+	if(pagesuu==12){abcword="";moji="できましたか？";}
+	if(pagesuu==13){moji="できましたか？\nでは次に行きましょう。";}
+	if(pagesuu==14){moji="次は②k,c,yの打ち方です。";}
+	if(pagesuu==15){moji="次は②k,c,yの打ち方です。早速ですが\n「k」は「-.-」、\n「c」は「-.-.」\n「y」は「-.--」\nです。";}
+	if(pagesuu==16){moji="次は②k,c,yの打ち方です。早速ですが\n「k」は「-.-」、\n「c」は「-.-.」\n「y」は「-.--」\nです。\n「-.」が「たーに」だったので、「たーにけーち」、「たーにけーやー」と覚えましょう。";}
+	if(pagesuu==17){moji="このあたりで、また整理してみましょう。";}
+	if(pagesuu==18){moji="このあたりで、また整理してみましょう。\n今回から「-」から始まる文字に入りました。";}
+	if(pagesuu==19){moji="このあたりで、また整理してみましょう。\n今回から「-」から始まる文字に入りました。\n「-」で「t」、以降「.」を付け加えることで、順に「n,d,b」が書けました。";}
+	if(pagesuu==20){moji="このあたりで、また整理してみましょう。\n今回から「-」から始まる文字に入りました。\n「-」で「t」、以降「.」を付け加えることで、順に「n,d,b」が書けました。\n「-.」で始まる残りの文字が「k,c,y」なわけです。";}
+	if(pagesuu==21){moji="このあたりで、また整理してみましょう。\n今回から「-」から始まる文字に入りました。\n「-」で「t」、以降「.」を付け加えることで、順に「n,d,b」が書けました。\n「-.」で始まる残りの文字が「k,c,y」なわけです。\n「-.」で始まるのは、実はこれで全てです。";}
+	if(pagesuu==22){moji="さて、次のページで「k,c,y」の練習をしましょう。";}
+	if(pagesuu==23){abcword="";moji="さて、次のページで「k,c,y」の練習をしましょう。\n「たーにけーち」、「たーにけーやー」、ですよ？";}
+	if(pagesuu==24){uchikomimode=1;moji="「-.-」で「k」、「-.-.」で「c」、「-.--」で「y」を出力しましょう。\n"+abcword;}
+	if(pagesuu==25){abcword="";moji="できましたか？";}
+	if(pagesuu==26){moji="できましたか？\n Lesson 3は以上です。";}
+	if(pagesuu==27){moji="できましたか？\n Lesson 3は以上です。残りは「--」から始まる文字だけですね。";}
+	if(pagesuu==28){moji="できましたか？\n Lesson 3は以上です。残りは「--」から始まる文字だけですね。\n次回は残りのアルファベット5個と、数字などです。";}
+	if(pagesuu==29){moji="できましたか？\n Lesson 3は以上です。残りは「--」から始まる文字だけですね。\n次回は残りのアルファベット5個と、数字などです。\nお疲れ様でした！";}
+
+       	context.fillStyle = "black";
+       	if(hikaraseru==1 && x_2<canvas.height*7/8){context.fillStyle = "rgb(50,50,50)";}
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width/64, canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("back", canvas.width/64+10, canvas.height*(1-2/64));
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(1/2), canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("next", canvas.width*1/2+10, canvas.height*(1-2/64));
+
+	var i;
+
+	if(tenmetu<5){
+		 byougatxt=multilineText(context, moji, canvas.width*14/16);
+		}
+	if(tenmetu>=5){
+		byougatxt=multilineText(context, moji+"|", canvas.width*14/16);
+		}
+
+		for(i=0;i<byougatxt.length;i++){
+			context.font = "50px Verdana";
+		        context.fillStyle = "lime";
+			context.fillText(byougatxt[i], 50, canvas.height*3/16+i*50);
+			}
+		
+	}
+
+
+      if(gamenjyoutai==44){//lesson4
+	uchikomimode=0;
+
+        tenmetu=(tenmetu+1)%10;
+
+	if(pagesuu==0){moji="こんにちは、ようこそLesson 4へ。\n";}
+	if(pagesuu==1){moji="こんにちは、ようこそLesson 4へ。\nここでは\n①m,g,z,q,oの打ち方、\n②数字などの打ち方\nを学びます。";}
+	if(pagesuu==2){moji="こんにちは、ようこそLesson 4へ。\nここでは\n①m,g,z,q,oの打ち方、\n②数字などの打ち方\nを学びます。\nそれでは早速始めましょう。";}
+	if(pagesuu==3){moji="まずは①m,g,z,q,oの打ち方です。";}
+	if(pagesuu==4){moji="まずは①m,g,z,q,oの打ち方です。これらは「--」から始まるものたちです。";}
+	if(pagesuu==5){moji="「m」は「--」、\n「g」は「--.」、\n「z」は「--..」、\n「q」は「--.-」、\nです。";}
+	if(pagesuu==6){moji="「m」は「--」、\n「g」は「--.」、\n「z」は「--..」、\n「q」は「--.-」、\nです。\n「-」が「たー」だったので、続きで「たーまーごず！」、「たーまーごきゅー☆」と覚えましょう。";}
+	if(pagesuu==7){abcword="";moji="「m」は「--」、\n「g」は「--.」、\n「z」は「--..」、\n「q」は「--.-」、\nです。\n「-」が「たー」だったので、続きで「たーまーごず！」、「たーまーごきゅー☆」と覚えましょう。\n次のページで練習しましょう。";}
+	if(pagesuu==8){uchikomimode=1;moji="「--」で「m」、「--.」で「g」、「--..」で「z」、「--.-」で「q」、を出力しましょう。\n「たーまーごず！」、「たーまーごきゅー☆」ですよ！\n"+abcword;}
+	if(pagesuu==9){abcword="";moji="できましたか？";}
+	if(pagesuu==10){moji="できましたか？\nではついに最後のアルファベット、「o」に行きましょう。";}
+	if(pagesuu==11){moji="「o」は「---」\nです。";}
+	if(pagesuu==12){moji="「o」は「---」\nです。「--」が「たーまー」だったので、「たーまーおー！」と覚えましょう。";}
+	if(pagesuu==13){abcword="";moji="「o」は「---」\nです。「--」が「たーまー」だったので、「たーまーおー！」と覚えましょう。\n次のページで練習できます。";}
+	if(pagesuu==14){uchikomimode=1;moji="「---」で「o」を出力しましょう。\n"+abcword;}
+	if(pagesuu==15){abcword="";moji="できましたか？";}
+	if(pagesuu==16){moji="できましたか？ついにアルファベットは終わりですね、おめでとうございます！！";}
+	if(pagesuu==17){moji="できましたか？ついにアルファベットは終わりですね、おめでとうございます！！\n今後は、タイトル画面「Game」からタイピングゲームが遊べますので、是非そちらも活用してタイピング速度を上げていってください！";}
+	if(pagesuu==18){moji="では次に、②数字などの打ち方に行きましょう。";}
+	if(pagesuu==19){moji="では次に、②数字などの打ち方に行きましょう。\nアルファベットは「.」及び「-」4つまでの組み合わせでしたが、数字を表すのには5つの「.」及び「-」を用います。";}
+	if(pagesuu==20){moji="列挙しますと、\n「0」は「-----」、\n「1」は「.----」、\n「2」は「..---」、\n「3」は「...--」、\n「4」は「....-」、";}
+	if(pagesuu==21){abcword="";moji="「5」は「.....」、\n「6」は「-....」、\n「7」は「--...」、\n「8」は「---..」、\n「9」は「----.」、\nです。規則的ですね。これも練習しましょう。";}
+	if(pagesuu==22){uchikomimode=1;moji="数字を練習しましょう。\n"+abcword;}
+	if(pagesuu==23){abcword="";moji="できましたか？";}
+	if(pagesuu==24){moji="できましたか？\nその他にもモールス符号では様々な記号が打てます。";}
+	if(pagesuu==25){moji="できましたか？\nその他にもモールス符号では様々な記号が打てます。このプログラムが対応している記号には「.,?!-/@()」があります。";}
+	if(pagesuu==26){moji="最後に例として、ピリオドとコンマを紹介しましょう。これらは6個の「.」及び「-」の組合せです。";}
+	if(pagesuu==27){moji="最後に例として、ピリオドとコンマを紹介しましょう。これらは6個の「.」及び「-」の組合せです。\nピリオドは「.-.-.-」、\nコンマは「--..--」、\nです。";}
+	if(pagesuu==28){moji="以上で全てのLessonは終わりです。";}
+	if(pagesuu==29){moji="以上で全てのLessonは終わりです。\nお疲れ様でした！よいモールスライフを！！！";}
+
+       	context.fillStyle = "black";
+       	if(hikaraseru==1 && x_2<canvas.height*7/8){context.fillStyle = "rgb(50,50,50)";}
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width/64, canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("back", canvas.width/64+10, canvas.height*(1-2/64));
+
+		context.fillStyle = "darkgray";
+        	context.fillRect(canvas.width*(1/2), canvas.height*7/8, canvas.width*(1/2-2/64), canvas.height/8);
+
+	        context.font = "50px Verdana";
+	        context.fillStyle = "black";
+	        context.fillText("next", canvas.width*1/2+10, canvas.height*(1-2/64));
+
+	var i;
+
+	if(tenmetu<5){
+		 byougatxt=multilineText(context, moji, canvas.width*14/16);
+		}
+	if(tenmetu>=5){
+		byougatxt=multilineText(context, moji+"|", canvas.width*14/16);
+		}
+
+		for(i=0;i<byougatxt.length;i++){
+			context.font = "50px Verdana";
+		        context.fillStyle = "lime";
+			context.fillText(byougatxt[i], 50, canvas.height*3/16+i*50);
+			}
+		
+	}
+
+
+    }
+
+    setInterval(weittime, 10);
+
+
+    function weittime(){
+
+      if(Weiting==0){Weittimecounter=0;}
+
+      if(Weiting==1){
+
+        if(Weittimecounter<30){Weittimecounter=Weittimecounter+1;}
+
+        if(Weittimecounter>=30){
+          
+          Weittimecounter=0;
+          Weiting=0;
+
+          abcword=abcword+decode(Morsecode);
+          Morsecode="";
+
+        }
+
+      }
+
+    }
+
+    var IT;
+    var FT;
+    var intv;
+
+    function kaishi(){
+
+      Weiting=0;
+
+      var idate = new Date();
+      var im = idate.getMinutes();
+      var is = idate.getSeconds();
+      var ims = idate.getMilliseconds();
+
+      IT=im*60*1000+is*1000+ims; 
+
+      return;
+
+    }
+
+    function owari(){
+
+	var breaksuru;
+	breaksuru=0;
+
+      if(gamenjyoutai==1 || (gamenjyoutai==3 && canvas.height*1/8<x_2 && x_2<canvas.height*7/8)){
+
+  	    Weiting=1;
+
+	   var fdate = new Date();
+      	   var fm = fdate.getMinutes();
+    	   var fs = fdate.getSeconds();
+   	   var fms = fdate.getMilliseconds();
+
+	  FT=fm*60*1000+fs*1000+fms; 
+   	  intv=FT-IT;
+   	  if(intv<0){intv=intv+60000;}
+
+	     if(intv<150){Morsecode=Morsecode+".";}
+	     if(200<intv){Morsecode=Morsecode+"-";}
+		
+	}
+
+
+      if(gamenjyoutai==4 && breaksuru==0){
+
+	pagesuu=0;
+	if(x_2<canvas.height*1/4){gamenjyoutai=41;breaksuru=1;Morsecode="";abcword="";}
+	if(canvas.height*1/4<x_2 && x_2<canvas.height*2/4){gamenjyoutai=42;breaksuru=1;Morsecode="";abcword="";}
+	if(canvas.height*2/4<x_2 && x_2<canvas.height*3/4){gamenjyoutai=43;breaksuru=1;Morsecode="";abcword="";}
+	if(canvas.height*3/4<x_2){gamenjyoutai=44;breaksuru=1;Morsecode="";abcword="";}
+	}
+
+      if(gamenjyoutai==3 && breaksuru==0){
+
+	if(canvas.height*1/8>x_2 && x_1<canvas.width*1/2){
+		if(window.confirm("Exit?")==true){gamenjyoutai=0;breaksuru=1;}
+		}
+	if(canvas.height*1/8>x_2 && x_1>canvas.width*1/2 && breaksuru==0){
+		var prompttxt;
+		prompttxt=window.prompt("Copy the following to the clipboard!",abcword);
+		if(prompttxt != null){abcword=prompttxt;}
+		}
+	if(canvas.height*7/8<x_2 && x_1<canvas.width*3/5){
+		abcword=abcword+" ";
+		}
+	if(canvas.height*7/8<x_2 && x_1>canvas.width*4/5){
+		abcword=abcword.slice(0, -1);
+		}
+	if(canvas.height*7/8<x_2 && canvas.width*3/5<x_1 && x_1<canvas.width*4/5){
+		abcword=abcword+"\n";
+		}
+	breaksuru=1;
+	}
+
+      if(gamenjyoutai==0 && breaksuru==0){
+
+
+		if(canvas.height*1/4<x_2 && canvas.height*2/4>x_2){
+		      gamenjyoutai=4;
+			breaksuru=1;
+		}
+
+		if(canvas.height*3/4<x_2){
+	   	      Morsecode="";
+	  	      abcword="";
+		      gamenjyoutai=3;
+			breaksuru=1;
+		}
+
+		if(canvas.height*2/4<x_2 && x_2<canvas.height*3/4){
+		      toitakazu=1;
+		      seikaisitakazu=0;
+	              nokorijikan=600;
+	   	      Morsecode="";
+	  	      abcword="";
+		　　　imanoQ=setnewQ(0);
+    Q[0]="more";
+    Q[1]="object";
+    Q[2]="study";
+    Q[3]="complex";
+    Q[4]="exist";
+    Q[5]="analytic";
+    Q[6]="also";
+    Q[7]="plane";
+    Q[8]="with";
+    Q[9]="point";
+    Q[10]="several";
+    Q[11]="whose";
+    Q[12]="actual";
+    Q[13]="class";
+    Q[14]="problem";
+    Q[15]="attend";
+    Q[16]="index";
+    Q[17]="mean";
+    Q[18]="limit";
+    Q[19]="big";
+    Q[20]="define";
+    Q[21]="theorem";
+    Q[22]="zero";
+    Q[23]="lemma";
+    Q[24]="corollary";
+    Q[25]="article";
+    Q[26]="every";
+    Q[27]="any";
+    Q[28]="conjugate";
+    Q[29]="question";
+    Q[30]="term";
+    Q[31]="not";
+    Q[32]="iff";
+    Q[33]="word";
+    Q[34]="local";
+    Q[35]="use";
+    Q[36]="take";
+    Q[37]="get";
+    Q[38]="give";
+    Q[39]="obtain";
+    Q[40]="say";
+    Q[41]="see";
+    Q[42]="qed";
+    Q[43]="proof";
+    Q[44]="finite";
+    Q[45]="compact";
+    Q[46]="space";
+    Q[47]="field";
+    Q[48]="extend";
+    Q[49]="the";
+		      gamenjyoutai=1;
+			breaksuru=1;
+		}	
+	
+	}
+
+      if(gamenjyoutai==2 && breaksuru==0){
+
+	   gamenjyoutai=0;
+		breaksuru=1;
+
+	}
+
+      if(gamenjyoutai>4 && breaksuru==0){
+
+	if(canvas.height*7/8>x_2 && uchikomimode==1){
+
+  	    Weiting=1;
+
+	   var fdate = new Date();
+      	   var fm = fdate.getMinutes();
+    	   var fs = fdate.getSeconds();
+   	   var fms = fdate.getMilliseconds();
+
+	  FT=fm*60*1000+fs*1000+fms; 
+   	  intv=FT-IT;
+   	  if(intv<0){intv=intv+60000;}
+
+	     if(intv<150){Morsecode=Morsecode+".";}
+	     if(200<intv){Morsecode=Morsecode+"-";}
+
+	}
+
+	if(canvas.height*7/8<x_2 && x_1<canvas.width*1/2){
+		if(pagesuu>0){pagesuu=pagesuu-1;}
+		}
+	if(canvas.height*7/8<x_2 && canvas.width*1/2<x_1){
+		pagesuu=pagesuu+1;
+		}
+           if(pagesuu>29){gamenjyoutai=0;}
+	   breaksuru=1;
+
+	}
+
+     return;
+    
+    }
+
+    function setnewQ(maeno){
+
+      var _date = new Date();
+      var _ms = _date.getMilliseconds();
+      var atarashiino;
+      atarashiino=_ms*17%50;
+      if(atarashiino==maeno){atarashiino=atarashiino+1;}
+
+	return atarashiino;
+
+	}
+
+    function saiten(st1, st2){
+
+	var u;
+	var atteiru;
+	atteiru=1;
+
+	for(u=0;u<st2.length;u++){
+
+		if(st1.charAt(u)!=st2.charAt(u)){atteiru=0;}
+
+		}
+
+	return atteiru;	
+
+	}
+
+function multilineText(_context, text, width) {
+    var len = text.length;
+    var strArray = [];
+    var tmp = "";
+    var i = 0;
+ 
+    if( len < 1 ){
+        //textの文字数が0だったら終わり
+        return strArray;
+    }
+ 
+    for( i = 0; i < len; i++ ){
+        var c = text.charAt(i);  //textから１文字抽出
+        if( c == "\n" ){
+            /* 改行コードの場合はそれまでの文字列を配列にセット */
+            strArray.push( tmp );
+            tmp = "";
+ 
+            continue;
+        }
+ 
+        /* contextの現在のフォントスタイルで描画したときの長さを取得 */
+        if (_context.measureText( tmp + c ).width <= width){
+            /* 指定幅を超えるまでは文字列を繋げていく */
+            tmp += c;
+        }else{
+            /* 超えたら、それまでの文字列を配列にセット */
+            strArray.push( tmp );
+            tmp = c;
+        }
+    }
+ 
+    /* 繋げたままの分があれば回収 */
+    if( tmp.length > 0 )
+        strArray.push( tmp );
+ 
+    return strArray;
+}
+ 
+
+    function decode(code){
+
+      var decodezumino;
+      decodezumino="?";
+
+      if(code==".-"){decodezumino="a";}
+      if(code=="-..."){decodezumino="b";}
+      if(code=="-.-."){decodezumino="c";}
+      if(code=="-.."){decodezumino="d";}
+      if(code=="."){decodezumino="e";}
+      if(code=="..-."){decodezumino="f";}
+      if(code=="--."){decodezumino="g";}
+      if(code=="...."){decodezumino="h";}
+      if(code==".."){decodezumino="i";}
+      if(code==".---"){decodezumino="j";}
+      if(code=="-.-"){decodezumino="k";}
+      if(code==".-.."){decodezumino="l";}
+      if(code=="--"){decodezumino="m";}
+      if(code=="-."){decodezumino="n";}
+      if(code=="---"){decodezumino="o";}
+      if(code==".--."){decodezumino="p";}
+      if(code=="--.-"){decodezumino="q";}
+      if(code==".-."){decodezumino="r";}
+      if(code=="..."){decodezumino="s";}
+      if(code=="-"){decodezumino="t";}
+      if(code=="..-"){decodezumino="u";}
+      if(code=="...-"){decodezumino="v";}
+      if(code==".--"){decodezumino="w";}
+      if(code=="-..-"){decodezumino="x";}
+      if(code=="-.--"){decodezumino="y";}
+      if(code=="--.."){decodezumino="z";}
+      if(code==".----"){decodezumino="1";}
+      if(code=="..---"){decodezumino="2";}
+      if(code=="...--"){decodezumino="3";}
+      if(code=="....-"){decodezumino="4";}
+      if(code=="....."){decodezumino="5";}
+      if(code=="-...."){decodezumino="6";}
+      if(code=="--..."){decodezumino="7";}
+      if(code=="---.."){decodezumino="8";}
+      if(code=="----."){decodezumino="9";}
+      if(code=="-----"){decodezumino="0";}
+      if(code==".-.-.-"){decodezumino=".";}
+      if(code=="--..--"){decodezumino=",";}
+      if(code=="..--.."){decodezumino="?";}
+      if(code=="-.-.--"){decodezumino="!";}
+      if(code=="-....-"){decodezumino="-";}
+      if(code=="-..-."){decodezumino="/";}
+      if(code==".--.-."){decodezumino="@";}
+      if(code=="-.--."){decodezumino="(";}
+      if(code=="-.--.-"){decodezumino=")";}
+
+      
+      return decodezumino;
+
+    }
+
+    document.onkeydown = function(event) {
+              kaishi();
+      }
+
+
+    document.onkeyup = function(event) {
+    		x_1=canvas.width*1/2; x_2=canvas.height*1/2;
+    		
+    		if(gamenjyoutai==0){
+    			x_1=canvas.width*1/2; x_2=canvas.height*1/8;
+    			if(event.keyCode==76) {x_1=canvas.width*1/2; x_2=canvas.height*3/8;}
+    			if(event.keyCode==71) {x_1=canvas.width*1/2; x_2=canvas.height*5/8;}
+    			if(event.keyCode==69) {x_1=canvas.width*1/2; x_2=canvas.height*7/8;}
+    		}
+    		if(gamenjyoutai==3){
+    			if(event.keyCode==69 || event.keyCode==27) {x_1=canvas.width*1/4; x_2=canvas.height*1/16;}
+    			if(event.keyCode==67) {x_1=canvas.width*3/4; x_2=canvas.height*1/16;}
+    			if(event.keyCode==39 || event.keyCode==32) {x_1=canvas.width*3/10; x_2=canvas.height*15/16;}   
+    			if(event.keyCode==13) {x_1=canvas.width*7/10; x_2=canvas.height*15/16;}   
+    			if(event.keyCode==8 || event.keyCode==37) {x_1=canvas.width*9/10; x_2=canvas.height*15/16;}   			
+    		}
+    		if(gamenjyoutai==4){
+    			x_1=canvas.width*1/2; x_2=canvas.height*1/8;
+    			if(event.keyCode==50 || event.keyCode==98) {x_1=canvas.width*1/2; x_2=canvas.height*3/8;}
+    			if(event.keyCode==51 || event.keyCode==99) {x_1=canvas.width*1/2; x_2=canvas.height*5/8;}
+    			if(event.keyCode==52 || event.keyCode==100) {x_1=canvas.width*1/2; x_2=canvas.height*7/8;}
+    		}
+    		if(gamenjyoutai>4){
+    			if(event.keyCode==8 || event.keyCode==37) {x_1=canvas.width*1/4; x_2=canvas.height*15/16;}
+    			if(event.keyCode==32 || event.keyCode==13 || event.keyCode==39) {x_1=canvas.width*3/4; x_2=canvas.height*15/16;}    			
+    		}
+
+    		owari();
+      }
+
+    document.onmousedown = function (e){
+      if(gamenjyoutai==1 || gamenjyoutai==3 || gamenjyoutai>4){hikaraseru=1;}
+         x_1=e.pageX;
+     	 x_2=e.pageY;
+      kaishi();
+ }
+
+     document.onmouseup = function (e){
+     	if(gamenjyoutai==1 || gamenjyoutai==3 || gamenjyoutai>4){hikaraseru=0;}
+     	 x_1=e.pageX;
+     	 x_2=e.pageY;
+     	 owari();
+
+ }
+
+     document.ontouchstart = function (e){
+     	if(gamenjyoutai==1 || gamenjyoutai==3 || gamenjyoutai>4){hikaraseru=1;}
+     	x_1=e.touches[0].pageX;
+      	x_2=e.touches[0].pageY;
+      kaishi();
+ }
+
+     document.ontouchend = function (e){
+     	if(gamenjyoutai==1 || gamenjyoutai==3 || gamenjyoutai>4){hikaraseru=0;}
+     	x_1=e.changedTouches[0].pageX;
+      	x_2=e.changedTouches[0].pageY;
+      owari();
+ }
+
+
+
+}
+
+
+addEventListener('load', canvasInitialize);
+addEventListener('load', begin);
+
+addEventListener('touchstart', touchEventHandler);
+addEventListener('touchend', touchEventHandler);
+
+addEventListener('mousedown', mouseEventHandler);
+addEventListener('mouseup', mouseEventHandler);
+
+addEventListener('keydown', mouseEventHandler);
+addEventListener('keyup', mouseEventHandler);
+
+
+</script>
+</html>

@@ -1,19 +1,49 @@
 ﻿<h2>小池個人用ページ</h2>
 
 <h3>備忘録</h3>
-・・・
+<a href="https://blogtter.herokuapp.com/login">blogtter編集ページ</a>
 
 <h3>外部読み込み実験</h3>
 <div id="container"></div>
 <script type="text/javascript" src="./jquery.xdomainajax.js"></script>
+<script type=text/javascript>
+//$(function() {
+//$.ajax({
+//url: 'https://blogtter.herokuapp.com/',
+//type: 'GET',
+//success: function(data) {
+//$('#container').html(data.responseText).find('#tweet2').text();
+//alert(data.responseText);
+//}
+//});
+//});
+</script> 
+
+<h3>外部読み込み実験1.5</h3>
+<script type="text/javascript" src="./jquery.xdomainajax.js"></script>
+ <script>
+// 引っ張ってきたいサイトのURL
+url = 'https://blogtter.herokuapp.com/';
+$.get(url, function(data){
+var content = $(data.responseText).filter('div.tweet2').text();
+$("#text").text(content);
+alert(content);
+});
+</script>
+
+<div id="text"></div>
+
+<h3>外部読み込み実験2</h3>
+<div id="blogtweets"></div>
 <script type=text/javascript>
 $(function() {
 $.ajax({
 url: 'https://blogtter.herokuapp.com/',
 type: 'GET',
 success: function(data) {
-$('#container').html(data.responseText);
-$table = $('table', $('#container'));
+content = $(data.responseText);
+ $('#blogtweets').html(content);
+ //alert(content.find('div'));
 }
 });
 });

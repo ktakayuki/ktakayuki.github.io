@@ -1,0 +1,107 @@
+﻿<h2>しょうもない近況</h2>
+<br>
+
+<style>
+.twt {  
+	border-left:7px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}  
+</style>
+
+<script type="text/javascript" src="./jquery.xdomainajax.js"></script>
+<script type="text/javascript" src="jquery.bottom-1.0.js"></script>
+<script>
+//読み込み最終
+var N=7;
+//何件づつ読み込むか
+var M=7;
+// 引っ張ってきたいサイトのURL
+url = 'https://blogtter.herokuapp.com/';
+$.get(url, function(data){
+var itime;
+var itweet;
+var itag;
+var i;
+for(i=1;i<=N;i++){
+	itag = ".tweet"+i;
+	itweet = $(data.responseText).filter(itag).text();
+	itag = ".time"+i;
+	itime = $(data.responseText).filter(itag).text();
+	$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
+	}
+});
+
+$(function() {
+ 
+    // オプションのproximityでbottom.jsを発生する位置を指定する
+    $(window).bottom({proximity: 0.05});
+    $(window).bind('bottom', function() {
+ 
+        var obj = $(this);
+ 
+        // 「loading」がfalseの時に実行
+        if (!obj.data('loading')) {
+ 
+            // 「loading」をtrueにする
+            obj.data('loading', true);
+ 
+            // ローディング画像を表示
+            $('#loadimg').html('<img src="load.gif" />');
+ 
+            // 追加したい処理を記述
+            setTimeout(function() {
+ 
+                // ローディング画像を削除
+                $('#loadimg').html('');
+ 
+                // 追加するHTMLを指定
+				url = 'https://blogtter.herokuapp.com/';
+				$.get(url, function(data){
+				var itime;
+				var itweet;
+				var itag;
+				var i;
+				for(i=N+1;i<=N+M;i++){
+					itag = ".tweet"+i;
+					itweet = $(data.responseText).filter(itag).text();
+					if(itweet!=""){
+						//$("#text").append(itweet+"<br>");
+						itag = ".time"+i;
+						itime = $(data.responseText).filter(itag).text();
+						//$("#text").append(itime+"<br><br>");
+						$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
+						}
+					}
+				N=N+M;
+				});
+				
+ 
+                // 処理が完了したら「loading」をfalseにする
+                obj.data('loading', false);
+ 
+            }, 1500);
+        }
+ 
+    });
+ 
+    // リロードしたときにページの先頭を表示する
+    $('html,body').animate({ scrollTop: 0 }, '1');
+ 
+});
+
+</script>
+
+<style type="text/css">
+#loadimg {
+    padding-top: 50px;
+    clear: both;
+    text-align: center;
+}
+</style>
+
+<div id="text"></div>
+
+<div id="loadimg"></div>

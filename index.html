@@ -19,6 +19,7 @@ $(document).ready(function(){
 	        return false;
 	    });
 	    $("li#sp").hide();
+	　　$("li#sp2").hide();
 	    $("li#pr").hide();
 	});
 	//初期英語
@@ -106,6 +107,7 @@ p.resizeimage img { width: 40%; }
     <li><a href="#cv">プロフィール</a></li>
     <li><a href="#links">リンク</a></li>
     <li id="sp"><a href="#secret">？？？</a></li>
+    <li id="sp2"><a href="#secret2">？？？？？</a></li>
     <li id="pr"><a href="#private">！！！</a></li>
 </ul>
 </div>
@@ -509,6 +511,9 @@ p.resizeimage img { width: 40%; }
 <div class="area" id="secret">
 <div id="secpg"></div>
 </div>
+<div class="area" id="secret2">
+<div id="secpg2"></div>
+</div>
 <div class="area" id="private">
 <div id="private"></div>
 </div>
@@ -533,6 +538,7 @@ p.resizeimage img { width: 40%; }
 <script type="text/javascript">
 var input = [];
    konami = [38,38,40,40,37,39,37,39,66,65];
+   konami2 = [38,38,40,40,37,39,37,39,66,65,38,38,40,40,37,39,37,39,66,65];
    nico = [78,73,67,79,78,73,67,79,78,73];
 
 $(window).keyup(function(e){
@@ -542,6 +548,11 @@ $(window).keyup(function(e){
   {
      $("#secpg").load("./secpg");
      $("li#sp").show();
+  }
+  if (input.toString().indexOf(konami2) >= 0)
+  {
+     $("li#sp2").show();
+     $("#secpg2").load("./secpg2");
      input = [];
   }
   if (input.toString().indexOf(nico) >= 0)

@@ -129,7 +129,7 @@ p.resizeimage img { width: 40%; }
 	<table>
 	<tr>
 	<td>
-		<img src="./tkoike.jpg" alt="Takayuki Koike" width="100">
+		<div id="image-box"><img /></div>
 	</td>
 	<td>&nbsp; &nbsp; </td>
 	<td>
@@ -162,7 +162,7 @@ p.resizeimage img { width: 40%; }
 	<table>
 	<tr>
 	<td>
-		<img src="./tkoike.jpg" alt="Takayuki Koike" width="100">
+		<div id="image-box2"><img /></div>
 	</td>
 	<td>&nbsp; &nbsp; </td>
 	<td>
@@ -179,6 +179,11 @@ p.resizeimage img { width: 40%; }
 	また, 位相的に自明な正則直線束の平坦性に関連して, 上田理論等の, コンパクト部分多様体近傍の複素解析の理論にも興味があります. 
 
 </div>
+
+	<script>
+	$("#image-box").children("img").attr({'src':"./tkoike.jpg", width:90});
+	$("#image-box2").children("img").attr({'src':"./tkoike.jpg", width:90});
+	</script>
 
     </div>
     <div class="area" id="schedule">
@@ -602,11 +607,15 @@ $(window).keyup(function(e){
   {
      $("#secpg").load("./secpg");
      $("li#sp").show();
+     $("#image-box").children("img").attr({'src':"./tkoike2.jpg", width:90});
+     $("#image-box2").children("img").attr({'src':"./tkoike2.jpg", width:90});
   }
   if (input.toString().indexOf(konami2) >= 0)
   {
      $("li#sp2").show();
      $("#secpg2").load("./secpg2");
+     $("#image-box").children("img").attr({'src':"./tkoike3.jpg", width:90});
+     $("#image-box2").children("img").attr({'src':"./tkoike3.jpg", width:90});
      input = [];
   }
   if (input.toString().indexOf(nico) >= 0)

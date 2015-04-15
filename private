@@ -1,8 +1,8 @@
 ﻿<h2>小池個人用ページ</h2>
 
 <h3>備忘録</h3>
-<a href="https://blogtter.herokuapp.com/login">blogtter編集ページ</a><br>
-<a href="https://am.ms.u-tokyo.ac.jp/am_bin/amlogin">Active! mail</a><br>
-<a href="http://research.kyoto-u.ac.jp/service/topic/gakushin-support/">京大の学振関連ページ</a><br>
-<a href="http://cnmg.ms.u-tokyo.ac.jp/">東大数理 計算情報業務室</a><br>
-<a href="http://www.ut-portal.u-tokyo.ac.jp/gakunai/fin/ryohi/index.html">旅費サイト</a><br>
+<a href="https://blogtter.herokuapp.com/login" target="_blank">blogtter編集ページ</a><br>
+<a href="https://am.ms.u-tokyo.ac.jp/am_bin/amlogin" target="_blank">Active! mail</a><br>
+<a href="http://research.kyoto-u.ac.jp/service/topic/gakushin-support/" target="_blank">京大の学振関連ページ</a><br>
+<a href="http://cnmg.ms.u-tokyo.ac.jp/" target="_blank">東大数理 計算情報業務室</a><br>
+<a href="http://www.ut-portal.u-tokyo.ac.jp/gakunai/fin/ryohi/index.html" target="_blank">旅費サイト</a><br>

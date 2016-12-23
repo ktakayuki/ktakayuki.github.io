@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title> niconiXivの使い方 </title>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+</style>
+
+
+</head>
+<body>
+
+<h1><a href ="https://niconixive.herokuapp.com/">niconiXiv</a>の使い方</h1>
+
+<h2>目次</h2>
+ 
+<ul>
+<li><a href="#01">niconiXivとは?</a></li>
+<li><a href="#02">どうやって使うの?</a></li>
+<li><a href="#03">Q and A</a></li>
+</ul>
+
+
+<h2 id="01">niconiXivとは</h2>
+ 
+ニコニコっぽいコメント機能/タグ機能/マイリスト機能等を備えた, 身内用論文紹介webアプリです！<br>
+技術的な理由で, コメントは当面は流せそうにないけど！<br><br>
+
+普段, 一緒にセミナーとかをしている仲間内で, 「こんな論文があるよ！」とか, 「あの論文のp. 5 l. 3の式には誤植があって, 正しい式はこっちだよ！」とかの情報が共有されたりして役に立ったりとか, みなさんそういう経験はおありかと思います. <br>
+そういう情報はみんなの役に立つからどんどん公開すればよい・・・というのも正論なのですが, ちょっと (とくに自分が詳しくはない分野の論文の間違い指摘とかって) 無差別に人様に公開するっていうのは, 勇気がいりますよねぇ・・・<br><br>
+
+そんなあなたに, niconiXiv!<br><br>
+
+niconiXivでは, <font color="#ff0000">管理者によるメールアドレス目視認証システム</font>という, 原始的かつ古典的な方法で, 知り合いとか近しい人しかログインできないように参加者をしぼった上で, 論文情報の交換が楽しめます. <br>
+その上で, 各論文の紹介ページには, <font color="#ff0000">コメント(総評やレビュー的な役割の「Grobal Comments」と, 論文内の指定した場所の誤植やミス情報の共有に役立つ「Local Comments」) やタグ, Q and A</font>などの機能を実装 (予定). <br>
+また, <font color="#ff0000">(一応は) 読み終わった論文のリスト (Finishedlist) や読みたい論文のリスト (Mylist)</font> に照会されている論文を登録することができ, それを他の参加者に公開もできます (予定)!
+
+
+<h2 id="02">どうやって使うの?</h2>
+
+<h3>アクセスする</h3>
+<a href ="https://niconixive.herokuapp.com/">https://niconixive.herokuapp.com/</a>からご利用ください. 
+
+
+<h3>参加する</h3>
+「sign up」からよくある手順でアカウントを作ってください. 一応メールアドレスを用いた知り合い認証を行いますので, (捨てメアドでも結構ですが) ちゃんと届いて, かつ管理人が「あ, この人だ！」と分かるメアドでご登録ください. 
+ 
+<h3>論文を紹介する</h3>
+参加者に論文 (やノート, プレプリントを) します. 
+上部メニューバー内「Menu」から, 「Add New Article」をご選択ください. <br>
+登録はフォームに沿って行ってください. カテゴリーやコメントなどは適当でOKですが, タイトルと詳細情報 (←著者や雑誌, 入手方法等を, 参考文献チックな形式で書いていただくことを想定しています) は正確にお願いします. 
+尚, 登録前に<font color="#ff0000">同じ論文が既に登録されていないか</font>を必ずご確認ください. 
+
+<h3>検索する</h3>
+今のところTop画面の検索だけです. <br>
+この検索は, <font color="#ff0000">タイトルに指定した文字列が包含されているものを検索する</font>仕組みですので, 基本的には複数キーワードによる and/or 検索などのちゃんとした検索機能は備えてはいません... すいません.
+
+ 
+<h2 id="03">Q and A</h2>
+ 
+<h3>Q. アプリの名前は「niconiXiv」なの?「niconiXive」なの?</h3>
+A. スペルミスの関係で一部「niconiXive」となっていますが, 自分は「niconiXiv」のつもりでいます. 
+
+<h3>Q. なんかログインしても, 「Please Wait for the Approval by the Admin.」って文字だけなんだけど?</h3>
+A. 管理人によるメールアドレスの目視認証が済んでいない状態なので, 暫くおまちください. <br>
+登録したとの旨を管理人にメールしたりして頂けると, 気づいてすぐに処理がなされる場合があります. 
+
+<h3>Q. なんでアプリ内の地の分は下手な英語なの?</h3>
+英語なのは, なぜかrailsさんが, 全角の文字を含めると怒り出すからです. 下手なのは...お察しください. 
+
+
+
+<div>
+<br><hr>
+<p>最終更新日：2016年12月23日.  </p>
+</div>
+
+
+</body>
+</html>

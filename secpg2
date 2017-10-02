@@ -27,7 +27,7 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 	var i;
 	var count=1;
 	
-	while(itweet==""){
+	while(itweet=="" || itweet==="" || itweet==null){
 		itag = ".tweet"+count;
 		itweet = $($.ajax({
  		       type: 'GET',
@@ -37,7 +37,7 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 		count++;
 	}
 
-	count=count-1;
+	if(count>1){count=count-1;}
 	N = N+count;
 	alert(count);
 	for(i=count;i<=N;i++){

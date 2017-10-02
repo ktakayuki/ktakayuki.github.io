@@ -25,8 +25,22 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 	var itweet;
 	var itag;
 	var i;
+	var count=1;
 	
-	for(i=1;i<=N;i++){
+	while(itweet==""){
+		itag = ".tweet"+count;
+		itweet = $($.ajax({
+ 		       type: 'GET',
+		        url: myurl,
+		        async: false
+		    }).responseText).filter(itag).text();
+		count++;
+	}
+
+	count=count-1;
+	N = N+count;
+
+	for(i=count;i<=N;i++){
 		itag = ".tweet"+i;
 		itweet = $($.ajax({
  		       type: 'GET',

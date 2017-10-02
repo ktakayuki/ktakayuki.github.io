@@ -39,7 +39,6 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 
 	if(count>1){count=count-1;}
 	N = N+count;
-	alert(count);
 	for(i=count;i<=N;i++){
 		itag = ".tweet"+i;
 		itweet = $($.ajax({
@@ -53,7 +52,7 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 		        url: myurl,
 		        async: false
 		    }).responseText).filter(itag).text();
-		$("#text").append("<p class=\"twt\">"+i+": "+itweet+"<br><br>"+itime+"</p><br>");
+		$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
 	}
 
 

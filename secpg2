@@ -1,4 +1,5 @@
 ﻿<h2>しょうもない近況</h2>
+
 <style>
 .twt {  
 	border-left:7px solid #9f166a;
@@ -9,30 +10,39 @@
 }  
 </style>
 
-<script type="text/javascript" src="./jquery.xdomainajax.js"></script>
 <script type="text/javascript" src="jquery.bottom-1.0.js"></script>
 <script>
+
+$(function() {
+
 //読み込み最終
 var N=7;
 //何件づつ読み込むか
 var M=7;
-// 引っ張ってきたいサイトのURL
-url = 'https://blogtter.herokuapp.com/';
-$.get(url, function(data){
-var itime;
-var itweet;
-var itag;
-var i;
-for(i=1;i<=N;i++){
-	itag = ".tweet"+i;
-	itweet = $(data.responseText).filter(itag).text();
-	itag = ".time"+i;
-	itime = $(data.responseText).filter(itag).text();
-	$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
-	}
-});
+var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 
-$(function() {
+        var itime;
+	var itweet;
+	var itag;
+	var i;
+	
+	for(i=1;i<=N;i++){
+		itag = ".tweet"+i;
+		itweet = $($.ajax({
+ 		       type: 'GET',
+		        url: myurl,
+		        async: false
+		    }).responseText).filter(itag).text();
+		itag = ".time"+i;
+		itime = $($.ajax({
+ 		       type: 'GET',
+		        url: myurl,
+		        async: false
+		    }).responseText).filter(itag).text();
+		$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
+	}
+
+
  
     // オプションのproximityでbottom.jsを発生する位置を指定する
     $(window).bottom({proximity: 0.05});
@@ -56,27 +66,26 @@ $(function() {
                 $('#loadimg').html('');
  
                 // 追加するHTMLを指定
-				url = 'https://blogtter.herokuapp.com/';
-				$.get(url, function(data){
-				var itime;
-				var itweet;
-				var itag;
-				var i;
 				for(i=N+1;i<=N+M;i++){
-					itag = ".tweet"+i;
-					itweet = $(data.responseText).filter(itag).text();
-					if(itweet!=""){
-						//$("#text").append(itweet+"<br>");
-						itag = ".time"+i;
-						itime = $(data.responseText).filter(itag).text();
-						//$("#text").append(itime+"<br><br>");
-						$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
+		itag = ".tweet"+i;
+		itweet = $($.ajax({
+ 		       type: 'GET',
+		        url: myurl,
+		        async: false
+		    }).responseText).filter(itag).text();
+		if(itweet!=""){
+					itag = ".time"+i;
+					itime = $($.ajax({
+		 		       type: 'GET',
+				        url: myurl,
+				        async: false
+				    }).responseText).filter(itag).text();
+				$("#text").append("<p class=\"twt\">"+itweet+"<br><br>"+itime+"</p><br>");
+				}
+
 						}
-					}
 				N=N+M;
-				});
 				
- 
                 // 処理が完了したら「loading」をfalseにする
                 obj.data('loading', false);
  

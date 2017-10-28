@@ -22,6 +22,28 @@ $(document).ready(function(){
 	    $("li#sp").hide();
 	　　$("li#sp2").hide();
 	    $("li#pr").hide();
+	    //スケジュール読み込み
+	    	$("#scheduleen").append($.ajax({
+ 		       type: 'GET',
+		        url: 'http://tkoike.php.xdomain.jp/confdata/koike_sche_en.php',
+		        async: false
+		    }).responseText);
+		$("#schedulejp").append($.ajax({
+ 		       type: 'GET',
+		        url: 'http://tkoike.php.xdomain.jp/confdata/koike_sche_jp.php',
+		        async: false
+		    }).responseText);
+	    //講演データ読み込み
+	    	$("#talksen").append($.ajax({
+ 		       type: 'GET',
+		        url: 'http://tkoike.php.xdomain.jp/confdata/koike_talks_en.php',
+		        async: false
+		    }).responseText);
+		$("#talksjp").append($.ajax({
+ 		       type: 'GET',
+		        url: 'http://tkoike.php.xdomain.jp/confdata/koike_talks_jp.php',
+		        async: false
+		    }).responseText);
 	});
 	//初期英語
 	$('.en').show();
@@ -192,31 +214,11 @@ p.resizeimage img { width: 40%; }
 	</script>
 
     </div>
+
     <div class="area" id="schedule">
-
-<div class="en">
-
-	<h2>Schedule</h2>
-	<ol>
-		<li>I will attend <a href="https://www.my-pharm.ac.jp/noda/cnf/kanazawa23.html" target="_blank">The 23rd Symposium on Complex Geometry</a> from November 6 to 10, 2017, at Ishikawa Prefectural bunkyo hall, Kanazawa. 
-		<li> I will give a talk in Seminar in　Algebraic Geometry which will be held in November 13, at Nagoya University. 
-		<li> I will give a talk in <a href="https://wwp.shizuoka.ac.jp/masanori-adachi/2017rims/" target="_blank">Topology of pseudoconvex domains and analysis of reproducing kernels</a> which will be held from November 20 to 22, at Kyoto University. 
-		<li> I will give a talk in  Workshop on geometry of foliations and its applications which will be held from December 15 to 17, at Kyoto University of Education. 
-	</ol>
-
-</div>
-
-<div class="jp">
-
-	<h2>今後の予定</h2>
-	<ol>
-		<li> 11/6-10に 石川県文教会館 で行われる <a href="https://www.my-pharm.ac.jp/noda/cnf/kanazawa23.html" target="_blank">第２３回複素幾何シンポジウム</a> に出席致します. 
-		<li> 11/13に名古屋大学で行われる 代数幾何学セミナー で講演をさせて頂きます.
-		<li> 11/20-22に京都大学で行われる <a href="https://wwp.shizuoka.ac.jp/masanori-adachi/2017rims/" target="_blank">擬凸領域のトポロシ゛ーと再生核</a> で講演をさせて頂きます.
-		<li> 12/15-17に京都教育大学で行われる 葉層構造の幾何学とその応用 で講演をさせて頂きます.
-	</ol>
-
-</div>
+	<div class="en"><div id="scheduleen"></div></div>
+	<div class="jp"><div id="schedulejp"></div></div>
+    </div>
 
     </div>
     <div class="area" id="papers">
@@ -272,141 +274,11 @@ p.resizeimage img { width: 40%; }
     </div>
     <div class="area" id="talks">
 
-	<div class="en">
+        <div class="en"><div id="talksen"></div></div>
+	<div class="jp"><div id="talksjp"></div></div>
 
-        <h2>Talks</h2>
-
-	<h3>Conferences</h3>
-	<ol>
-	<li> Notes on the conjecture of Demailly and Kollar, Complex variables summer seminar, Mie, Aug. 2012.
-	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, MSJ Spring Meeting, Kyoto University, Mar. 2013.
-	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, Younger generations in Algebraic and Complex geometry III, Nagasaki, Jan. 2014.
-	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, MSJ Spring Meeting, Gakushuin University, Mar. 2014.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Asymptotic aspects of complex and algebraic geometry, the University of Milano-Bicocca, Italy, Jun. 2014.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci (Evening session), HAYAMA Symposium on Complex Analysis in Several Variables, Shonan Village Center, Kanagawa, Jul. 2014. </li>
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Young Mathematician Workshop on Several Complex Variables 2014, Pohang University of Science and Technology, Korea, Aug. 2014.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, The 20th Symposium on Complex Geometry, Sugadaira, Nov. 2014.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Several complex variables winter seminar, Kanazawa University, Dec. 2014.
-	<li> Toward a higher codimensional Ueda theory, Analytical aspects of the dbar equation, Nagoya University, Feb. 2015.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, MSJ Spring Meeting 2015, section of complex analysis, Meiji University, March 2015. 
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, 2015 Beijing-Shanghai Workshop on Algebraic Geometry, Fudan University, China, June 2015. 
-	<li> On some analogues of Ueda theory and their applications, 2015 Seoul Workshop on Complex Geometry and Analysis, Seoul National University, Korea, July 2015. 
-	<li>  	On some analogues of Ueda theory and their applications, Young Mathematicians Workshop on Several Complex Variables 2015, Tongji University, China, August 2015. 
-	<li> On some analogues of Ueda theory and their applications, Geometry Symposium, Tokyo University of Science, August 2015. 
-	<li> Toward a higher codimensional Ueda theory, MSJ Autumn Meeting 2015, section of complex analysis, Kyoto Sangyo University, September 2015. 
-        <li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, The 21th Symposium on Complex Geometry, Kanazawa University, Oct. 2015. 
-	<li> On some analogues of Ueda theory and their applications, Workshop on holomorphic vector fields and foliations, and related topics, Kyoto University of Education, Dec. 2015. 
-	<li> On some analogues of Ueda theory and their applications, Potential Theoretical Aspects of Complex Analytic Geometry, the University of Tokyo, Feb. 2016. 
-	<li> On some analogues of Ueda theory and their applications, Komplex Analysis Winter School-KAWA 7, Albi, France, Mar. 2016.
-	<li> Higher codimensional Ueda theory on compact submanifolds with unitary flat normal bundles, HAYAMA Symposium on Complex Analysis in Several Variables, Shonan Village Center, Kanagawa, Jul. 2016.
-	<li> Ueda theory for compact curves with nodes, MSJ Autumn Meeting 2016, Kansai University, Sept. 2016.
-	<li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, Workshop on geometry of foliations and its applications, Kyoto University of Education, Dec. 2016. 
-	<li> Non-Kummer K3 surfaces with Levi-
-at hypersurfaces, Complex dynamics and the theory of functions in several complex variables, Kyoto University, Mar. 2017. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, Symposium in geometry and differential equations, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, China, Jul. 2017. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, HAYAMA Symposium on Complex Analysis in Several Variables XIX, Shonan Village Center, Kanagawa, Jul. 2017.
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, MSJ Autumn Meeting 2017, Yamagata University, Sept. 2017.
-	</ol>
-	
-	<h3>Seminars</h3>
-	<ol>
-	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, Tokuiten seminar, Nihon University, Feb. 2013.
-	<li> Singular holomorphic foliations by curves whose canonical rings have infinitely generated section rings (poster presentation), Foliation theory in algebraic geometry, Simons Foundation, US, Sep. 2013.
-	<li> Minimal singular metrics of a line bundle admitting no Zariski decomposition, Seminar on Geometric Complex Analysis, the University of Tokyo, Oct. 2013.
-	<li> Minimal singular metrics of some line bundles with infinitely generated section rings, Algebraic Geometry Seminar, the University of Tokyo, Nov. 2013.
-	<li> On a relationship between semi-positivity of a nef line bundle and neighborhoods of the stable base locus, Kaiseki kikagaku seminar, Nagoya University, Apr. 2014.
-	<li> Real-time Feynman path integral with Picard-Lefschetz theory and its applications to quantum tunneling, Komaba particle physics seminar, the University of Tokyo, Jul. 2014.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, MAGIC seminor, Imperial College London, UK, Sep. 2014.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles,  Algebraic Geometry Seminar, Kyoto University, Oct. 2014.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, Seminar on Geometric Complex Analysis, the University of Tokyo, Oct. 2014.
-	<li> On a higher codimensional analogue of Ueda theory and its applications, Kyushu Sangyo University mathematics seminar, Kyushu Sangyo University, Jan. 2016. 
-	<li> Higher codimensional Ueda theory for a compact submanifold with unitary flat normal bundle (poster presentation), Recent advances in complex differential geometry, Institut de Mathematiques de Toulouse, France, Jun. 2016. 
-	<li> On a higher codimensional analogue of Ueda theory and its applications, Seminar on Geometric Complex Analysis, the University of Tokyo, Jun. 2016. 
-	<li> On a higher codimensional analogue of Ueda theory and its applications, Algebraic Geometry Seminar, Kyoto University, Jul. 2016.
-	<li> Higher codimensional Ueda theory for a compact submanifold with unitary flat normal bundle (poster presentation), Kinosaki Algebraic Geometry symposium 2016, Kinosaki International Arts Center, Oct. 2016. 
-	<li> Non-Kummer K3 surfaces with Levi-flats, Geometry Seminar, Osaka University, Feb. 2017. 
-	<li> Non-Kummer K3 surfaces with Levi-flat hypersurfaces, Danwakai, Tokai University, Mar. 2017. 
-	<li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, Izu topology seminar, Ito, Shizuoka, Mar. 2017. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, Seminar on Geometric Complex Analysis, the University of Tokyo, May. 2017. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, Differential Topology Seminar, Kyoto University, May. 2017. 
-	</ol>
-
-	<h3>Others</h3>
-	<ol>
-	<li> On the concept of "regular polyhedron" in curved spaces (general lecture), Suuri-wave, Nagoya University, Nov. 2014. </li>
-	<li> On some analogues of Ueda theory and their applications (Short Communication), Algebraic geometry summer school 2015, Tambara Institute of Mathematical Sciences The University of Tokyo, September 2015. 
-	</ol>
-
-	</div>
-
-	<div class="jp">
-
-        <h2>講演の履歴</h2>
-
-	<h3>研究集会</h3>
-	<ol>
-	<li> Notes on the conjecture of Demailly and Kollar, 第47回函数論サマーセミナー, かんぽの宿　鳥羽, 三重, 2012年8月.
-	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, 日本数学会年会函数論分科会, 京都大学, 2013年3月.
-	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, 第三回若手代数複素幾何研究集会, 松藤プラザ, 長崎市, 2014年1月.
-	<li> On minimal singular metrics of certain class of line bundles whose section ring is not finitely generated, 日本数学会年会函数論分科会, 学習院大学, 2014年3月.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Asymptotic aspects of complex and algebraic geometry, ミラノ-ビコッカ大学, イタリア共和国, 2014年6月.
-	<li>On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci (Evening session), 多変数複素解析葉山シンポジウム, 湘南国際村センター, 神奈川, 2014年7月. </li>
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, Young Mathematician Workshop on Several Complex Variables 2014, 浦項工科大学校, 韓国, 2014年8月.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 複素幾何シンポジウム, プチホテルゾンタック, 菅平, 2014年11月.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, 多変数関数論冬セミナー, 金沢大学, 2014年12月.
-	<li> Toward a higher codimensional Ueda theory, Analytical aspects of the dbar equation, 名古屋大学, 2015年2月.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 日本数学会年会函数論分科会, 明治大学, 2015年3月.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, 2015 Beijing-Shanghai Workshop on Algebraic Geometry, 復旦大学, 中国, 2015年6月. 
-	<li> On some analogues of Ueda theory and their applications, 2015 Seoul Workshop on Complex Geometry and Analysis, Seoul National University, 韓国, 2015年7月. 
-	<li> On some analogues of Ueda theory and their applications, Young Mathematicians Workshop on Several Complex Variables 2015, 同済大学, 中国, 2015年8月. 
-	<li> On some analogues of Ueda theory and their applications, 第62回幾何学シンポジウム, 東京理科大学, 2015年8月. 
-	<li> Toward a higher codimensional Ueda theory, 日本数学会年会函数論分科会, 京都産業大学, 2015年9月. 
-	<li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, 複素幾何シンポジウム, 金沢大学, 2015年11月.
-	<li> On some analogues of Ueda theory and their applications, 複素解析的ベクトル場・葉層構造とその周辺, 京都教育大学, 2015年12月. 
-	<li> On some analogues of Ueda theory and their applications, 複素解析幾何学のポテンシャル論的諸相, 東京大学, 2016年2月. 
-	<li> On some analogues of Ueda theory and their applications, Komplex Analysis Winter School-KAWA 7, アルビ, フランス, 2016年3月.
-	<li> Higher codimensional Ueda theory on compact submanifolds with unitary flat normal bundles, 多変数複素解析葉山シンポジウム, 湘南国際村センター, 神奈川, 2016年7月.
-	<li> Ueda theory for compact curves with nodes, 2016年度秋季総合分科会, 関西大学, 2016年9月.
-	<li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, 葉層構造の幾何学とその応用, 京都教育大, 2016年12月. 
-	<li> Non-Kummer K3 surfaces with Levi-
-at hypersurfaces, 多変数の複素力学系と函数論, 京都大学, 2017年3月. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, Symposium in geometry and differential equations, Academy of Mathematics and Systems Science, Chinese Academy of Sciences, 中国, 2017年7月. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, 多変数複素解析葉山シンポジウム, 湘南国際村センター, 神奈川, 2017年7月. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, 2016年度秋季総合分科会, 山形大学, 2017年9月. 
-	</ol>
-	
-	<h3>セミナー等</h3>
-	<ol>
-	<li> Minimal singular metrics of a line bundle admitting no Zariski-decomposition, 特異点セミナー, 日本大学, 2013年2月.
-	<li> Singular holomorphic foliations by curves whose canonical rings have infinitely generated section rings (ポスター発表), Foliation theory in algebraic geometry, Simons Foundation, アメリカ合衆国, 2013年9月.
-	<li> Minimal singular metrics of a line bundle admitting no Zariski decomposition, 複素解析幾何セミナー, 東大数理, 2013年10月.
-	<li> Minimal singular metrics of some line bundles with infinitely generated section rings, 東大代数幾何学セミナー, 東大数理, 2013年11月.
-	<li> On a relationship between semi-positivity of a nef line bundle and neighborhoods of the stable base locus, 解析幾何学セミナー, 名古屋大学, 2014年4月.
-	<li> Real-time Feynman path integral with Picard-Lefschetz theory and its applications to quantum tunneling, 駒場素粒子論セミナー, 東京大学, 2014年7月.
-	<li> On the semi-positivity of a nef line bundle and the neighborhood of the stable base loci, MAGIC seminor, インペリアルカレッジ・ロンドン, 英国, 2014年9月.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 代数幾何学セミナー, 京都大学, 2014年10月.
-	<li> On the minimality of canonically attached singular Hermitian metrics on certain nef line bundles, 複素解析幾何セミナー, 東大数理, 2014年10月.
-	<li> On a higher codimensional analogue of Ueda theory and its applications, 九州産業大学数学教室セミナー, 九州産業大学, 2016年1月.
-	<li> Higher codimensional Ueda theory for a compact submanifold with unitary flat normal bundle (ポスター発表), Recent advances in complex differential geometry, Institut de Mathematiques de Toulouse, フランス共和国, 2016年6月. 
-	<li> On a higher codimensional analogue of Ueda theory and its applications, 複素解析幾何セミナー, 東大数理, 2016年6月. 
-	<li> On a higher codimensional analogue of Ueda theory and its applications, 代数幾何学セミナー, 京都大学, 2016年7月.
-	<li> Higher codimensional Ueda theory for a compact submanifold with unitary flat normal bundle (ポスター発表), 代数幾何学城崎シンポジウム2016, 城崎国際アートセンター, 2016年10月. 
-	<li> Non-Kummer K3 surfaces with Levi-flats, 幾何セミナー, 大阪大学, 2017年2月. 
-	<li> Non-Kummer K3 surfaces with Levi-flat hypersurfaces, 談話会, 東海大学, 2017年3月. 
-	<li> On a neighborhood of a torus leaf of a certain class of holomorphic foliations on complex surfaces, 第40回伊豆トポロジーセミナー, 静岡県伊東市, 2017年3月. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, 複素解析幾何セミナー, 東大数理, 2017年5月. 
-	<li> Complex K3 surfaces containing Levi-flat hypersurfaces, 微分トポロジーセミナー, 京都大学, 2017年5月. 
-	</ol>
-
-	<h3>その他</h3>
-	<ol>
-	<li>曲がった世界での"正多面体"について (一般講演), 数理ウェーブ, 名古屋大学, 2014年11月. </li>
-	<li> On some analogues of Ueda theory and their applications (ショートコミュニケーション), 代数幾何学サマースクール2015, 東京大学玉原国際セミナーハウス, 2015年9月. </li>
-	</ol>
-
-	</div>
-	
     </div>
+
     <div class="area" id="cv">
 
 	<div class="en">
@@ -692,14 +564,14 @@ at hypersurfaces, 多変数の複素力学系と函数論, 京都大学, 2017年
 <div class="en">
 <div align="right"><a href="#"><div class="btn_top">Back to the top</div></a></div>
 <br><hr>
-<p>Updated on October 18, 2017. </p>
+<p>Updated on October 28, 2017. </p>
 <p>Takayuki KOIKE (tkoike [at] math.kyoto-u.ac.jp), Department of Mathematics, Graduate School of Science, Kyoto University, Kyoto 606-8502, Japan. </p>
 </div>
 
 <div class="jp">
 <div align="right"><a href="#"><div class="btn_top">ページ上部へ</div></a></div>
 <br><hr>
-<p>最終更新日：2017年10月18日.  </p>
+<p>最終更新日：2017年10月28日.  </p>
 <p>小池 貴之 (tkoike [at] math.kyoto-u.ac.jp), 〒606-8502 京都市左京区北白川追分町 京都大学 理学研究科 数学教室. </p>
 </div>
 

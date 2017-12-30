@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <title>Positivity Concepts on Holomorphic Line Bundles and Theories on Canonical Kahler Metrics</title>
@@ -19,6 +19,22 @@
 	        return false;
 	    });
 })
+jQuery(function($) {
+ 
+  //data-hrefの属性を持つtrを選択しclassにclickableを付加
+  $('td[data-href]').addClass('clickable')
+   
+    //クリックイベント
+    .click(function(e) {
+   
+      //e.targetはクリックした要素自体、それがa要素以外であれば
+      if(!$(e.target).is('a')){
+       
+        //その要素の先祖要素で一番近いtdの
+        //data-href属性の値に書かれているURLに遷移する
+        window.open($(e.target).closest('td').data('href'));}
+  });
+});
 </script>
 
 <style type="text/css">
@@ -35,13 +51,13 @@ h3 {
 }
 
 p.resizeimage img { width: 40%; }
-.tab, .tab li, .tab li a {/*�N���b�N����^�u����*/
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
     float: left;
     padding:5px;
     margin-right:20px;
 }
 
-.content {/*�؂�ւ�镔�����͂��{�b�N�X*/
+.content {/*切り替わる部分を囲うボックス*/
     clear: both;
     overflow: hidden;
 /*    width: 300px;*/
@@ -49,14 +65,14 @@ p.resizeimage img { width: 40%; }
 /*    height:300px;*/
 }
 
-.area {/*�؂�ւ�镔���͂܂��S�������Ă���*/
+.area {/*切り替わる部分はまず全部消しておく*/
     display: none;
 }
-.tab li.active {/*�I�𒆂̃^�u�B�F��ς��铙*/
+.tab li.active {/*選択中のタブ。色を変える等*/
     background: #eee;
 }
 
-.tab li.active a{/*�I�𒆂̃^�u�̃����N�J���[*/
+.tab li.active a{/*選択中のタブのリンクカラー*/
     color:red;
 }
 div.g{
@@ -87,8 +103,8 @@ div.g{
 
 table.type08 {
 	border-collapse: collapse;
-	text-align: left;
-	line-height: 1.5;
+	text-align: center;
+	line-height: 0.05;
 	border-left: 1px solid #ccc;
 }
 
@@ -111,12 +127,19 @@ table.type08 tbody th {
 }
 table.type08 td {
 	width: 350px;
-	padding: 10px;
-	vertical-align: top;
+	line-height: 10px;
+	vertical-align: center;
 	border-right: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
-.type08 tr:nth-child(even) td, .stripe-table tr:nth-child(even) th {
+.linktd {
+	background-color: #ff3333;
+	cursor : pointer;
+}
+.linktd:hover {
+	background-color: #f72020;
+}
+.type08 tr:nth-child(even) td:not(.linktd), .stripe-table tr:nth-child(even) th {
   background-color:#f9f9f9;
 }
 </style>
@@ -175,72 +198,354 @@ Please contact: Takayuki Koike (tkoike [at] sci.osaka-cu.ac.jp).
 <div class="area" id="2">
 
 <h2>Conference Schedule</h2>
-        
-A rough draft of the timetable at this moment is: <br>
+<h3>Schedule</h3>
+<ul>
+<li><a href="./schedule_abst.html" target="_blank">HTML version</a></li>
+<li><a href="./schedule_abst.pdf" target="_blank">PDF version</a></li>
+</ul>
+<h3>Timetable</h3>
 <div>
 <table class="type08">
 	<thead>
 	<tr>
 		<th scope="cols"></th>
 		<th scope="cols">January 28</th>
-		<th scope="cols">29</th>
-		<th scope="cols">30</th>
-		<th scope="cols">31</th>
+		<th scope="cols">January 29</th>
+		<th scope="cols">January 30</th>
+		<th scope="cols">January 31</th>
 	</tr>
 	</thead>
 	<tbody>
 	<tr>
-		<th scope="row">10:00-10:30</th>
+		<th scope="row"></th>
 		<td></td>
-		<td rowspan="2">Mini-Lecture 1</td>
-		<td rowspan="2">Mini-Lecture 2</td>
+		<td></td>
+		<td></td>
 		<td></td>
 	</tr>
 	<tr>
-		<th scope="row">10:30-11:20</th>
+		<th scope="row">10:00</th>
 		<td></td>
-		<td>Talk 12</td>
-	</tr>
-	<tr>
-		<th scope="row">11:30-12:20</th>
+		<td rowspan="8" class="linktd" data-href="./titleabst.html?lecture"><a href="#"></a>Mini-Lecture 1</td>
+		<td rowspan="8" class="linktd" data-href="./titleabst.html?lecture"><a href="#"></a>Mini-Lecture 2</td>
 		<td></td>
-		<td>Talk 4</td>
-		<td>Talk 8</td>
-		<td>Talk 13</td>
 	</tr>
 	<tr>
-		<th scope="row">12:30-14:10</th>
-		<td>Registration (13:30-14:10)</td>
-		<td>Lunch &amp; Coffee</td>
-		<td>Lunch &amp; Coffee</td>
-		<td>Lunch &amp; Coffee</td>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
 	</tr>
 	<tr>
-		<th scope="row">14:10-15:00</th>
-		<td>Talk 1</td>
-		<td>Talk 5</td>
-		<td>Talk 9</td>
-		<td>Talk 14</td>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
 	</tr>
 	<tr>
-		<th scope="row">15:10-15:30</th>
-		<td>Coffee</td>
-		<td>Coffee</td>
-		<td>Coffee</td>
-		<td>Coffee</td>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
 	</tr>
 	<tr>
-		<th scope="row">15:40-16:30</th>
-		<td>Talk 2</td>
-		<td>Talk 6</td>
-		<td>Talk 10</td>
-		<td>Talk 15</td>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
 	</tr>
 	<tr>
-		<th scope="row">16:40-17:30</th>
-		<td>Talk 3</td>
-		<td>Talk 7</td>
-		<td>Talk 11</td>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">11:30</th>
+		<td></td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?nakamura"><a href="#"></a>S. Nakamura</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?fujita"><a href="#"></a>K. Fujita</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?adachi"><a href="#"></a>M. Adachi</td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">12:30</th>
+		<td></td>
+		<td rowspan="9">Lunch &amp; Coffee</td>
+		<td rowspan="9">Lunch &amp; Coffee</td>
+		<td rowspan="9">Lunch &amp; Coffee</td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row">13:30</th>
+		<td  rowspan="3" style="background-color:#ff3333;">Registration</td>
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		
+		
+		
+		
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">14:10</th>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?sera"><a href="#"></a>M. Sera</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?delcroix"><a href="#"></a>T. Delcroix</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?takahashi"><a href="#"></a>R. Takahashi</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?huynh"><a href="#"></a>D. T. Huynh</td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">15:10</th>
+		<td rowspan="3">Coffee</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?hisamoto"><a href="#"></a>T.B.A.</td>
+		<td rowspan="3">Coffee</td>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?uehara"><a href="#"></a>T. Uehara</td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row">15:40</th>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?hosono"><a href="#"></a>G. Hosono</td>
+
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?nomura"><a href="#"></a>R. Nomura</td>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+		<td></td>
+
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+		<td  rowspan="8">Discussion</td>
+
+		<td  rowspan="5">Discussion</td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+
+		<td></td>
+
+	</tr>
+	<tr>
+		<th scope="row">16:40</th>
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?xie"><a href="#"></a>S. Xie</td>
+
+		<td rowspan="5" class="linktd" data-href="./titleabst.html?kikuta"><a href="#"></a>S. Kikuta</td>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+
+
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+
+
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+
+
+
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">17:30</th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row">18:00</th>
+		<td></td>
+		<td></td>
+		<td rowspan="2" style="background-color:#ff3333;">Dinner</td>
+		<td></td>
+	</tr>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+
 		<td></td>
 	</tr>
 	</tbody>

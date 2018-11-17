@@ -1,0 +1,282 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Workshop on Complex Analytic and Algebraic Methods in Dynamics </title>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+})
+jQuery(function($) {
+ 
+  //data-hrefの属性を持つtrを選択しclassにclickableを付加
+  $('td[data-href]').addClass('clickable')
+   
+    //クリックイベント
+    .click(function(e) {
+   
+      //e.targetはクリックした要素自体、それがa要素以外であれば
+      if(!$(e.target).is('a')){
+       
+        //その要素の先祖要素で一番近いtdの
+        //data-href属性の値に書かれているURLに遷移する
+        window.open($(e.target).closest('td').data('href'));}
+  });
+});
+</script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+div.g{
+    width: 80%;
+    margin: 2em auto; 
+}
+.sm{
+   font-size: 80%;
+}
+.big{
+   font-size: 170%;
+}
+.title{
+   border-left: 10px solid #9f166a;
+   padding: 0 0.5em;
+}
+.place{
+   font-size: 110%;
+   margin: 0.5em 0;
+}
+.s{
+	border-left: 4px solid #9f166a;
+	padding: 0 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0.1em;
+}
+
+table.type08 {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 0.05;
+	border-left: 1px solid #ccc;
+}
+
+table.type08 thead th {
+	padding: 10px;
+	font-weight: bold;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 2px solid #9f166a;
+	background: #dcdcd1;
+}
+table.type08 tbody th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #ececec;
+}
+table.type08 td {
+	width: 350px;
+	line-height: 10px;
+	vertical-align: center;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.linktd {
+	background-color: #ff3333;
+	cursor : pointer;
+}
+.linktd:hover {
+	background-color: #f72020;
+}
+.type08 tr:nth-child(even) td:not(.linktd), .stripe-table tr:nth-child(even) th {
+  background-color:#f9f9f9;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="g">
+<div class="title">
+<b class="big"> Workshop on Complex Analytic <br>and Algebraic Methods in Dynamics </b><br>
+<b class="small">15-18 January, 2019, at Osaka City University.</b>
+</div>
+</b>
+</div>
+<div class="place">
+
+</div>
+
+<ul class="tab" style="list-style:none;cursor:pointer;">
+    <li><a href="#1">Home</a></li>
+    <li><a href="#2">Schedule &amp; Abstracts</a></li>
+    <li><a href="#3">Invited Speakers</a></li>
+    <li><a href="#4">Practical Information</a></li>
+    <li><a href="#5">Contact Us</a></li>
+</ul>
+
+<div class="content">
+    <div class="area" id="1">
+
+<h2>Conference Information</h2>
+
+<h3>Information</h3>
+<div>
+<table>
+  <tr>
+    <td><b> Date: </b></td>
+    <td>15-18 January, 2019. </td>
+  </tr>
+  <tr>
+    <td><b>Place:</b></td>
+    <td><a href="http://www.osaka-cu.ac.jp/en/about/access#sugimoto" target="_blank">Osaka City University</a> (Sugimoto Campus), Faculty of Science, Bldg. E, Room E408 (4F). </td>
+  </tr>
+</table>
+</div>
+
+<h3>Support for the travel</h3>
+
+<del>Some financial support will be available.</del><br>
+<del>Please contact: Takayuki Koike (tkoike [at] sci.osaka-cu.ac.jp).</del>
+
+
+
+</div>
+
+<div class="area" id="2">
+
+<h2>Schedule &amp; Abstracts</h2>
+<h3>Program/Abstracts</h3>
+<ul>
+<li>HTML version (in preparation)</li>
+<li>PDF version (in preparation)</li>
+</ul>
+<h3>Timetable</h3>
+<div>
+<table class="type08">
+	<thead>
+	<tr>
+		<th scope="cols"></th>
+		<th scope="cols">January 15</th>
+		<th scope="cols">January 16</th>
+		<th scope="cols">January 17</th>
+		<th scope="cols">January 18</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<th scope="row"></th>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+	</tbody>
+</table>
+</div>
+
+
+</div>
+
+<div class="area" id="3">
+
+<h2>Invited Speakers</h2>
+
+<ul>
+<li></li>
+</ul>
+
+</div>
+
+<div class="area" id="4">
+
+<h2>Practical Information</h2>
+
+<h3>Conference Room</h3>
+Conference room is Room <b>E408</b> at 4F of Faculty of Science, Bldg. E. <br>
+See <a href="http://www.osaka-cu.ac.jp/en/about/access#sugimoto" target="_blank">here</a> for the access. <br><br>
+Faculty of Science Building is located at&nbsp;<span style="background-color:rgb(241,194,50)"><font color="#ffffff">12</font></span></font><span style="font-size:large;line-height:17.6px;background-color:transparent">&nbsp;in Sugimoto Campus map.</span>
+
+<h3>Osaka City University Guest House</h3>
+
+Please contact Takayuki Koike (tkoike [at] sci.osaka-cu.ac.jp) as soon as possible if you want to use <a href="https://www.osaka-cu.ac.jp/en/research/guesthouse" target="_blank">Osaka City University Guest House</a>. <br>
+See <a href="https://www.osaka-cu.ac.jp/en/research/guesthouse/access" target="_blank">here</a> for the access map. 
+
+<h3>Conference Dinner</h3>
+
+
+
+</div>
+
+<div class="area" id="5">
+
+<h2>Contact Us</h2>
+
+<h3>Organizers</h3>
+<a href="http://ktakayuki.github.io/" target="_blank">Takayuki Koike</a> (tkoike [at] sci.osaka-cu.ac.jp)<br>
+<a href="https://sites.google.com/site/ynakamuraagmath/" target="_blank">Yusuke Nakamura</a> (nakamura [at] ms.u-tokyo.ac.jp)
+
+
+</div>
+
+
+<br><br>
+<hr>
+This conference is supported by Grant-in-Aid for Research Activity Start-up. 
+<br><br>
+Last updated on November 18, 2018.
+<br><br>
+</body>
+</html>

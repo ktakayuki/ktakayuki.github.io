@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Program and Abstracts</title>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+</script>
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+</script>
+<meta http-equiv="X-UA-Compatible" CONTENT="IE=EmulateIE7" />
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+})
+</script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+div.g{
+    width: 80%;
+    margin: 2em auto; 
+}
+.sm{
+   font-size: 80%;
+}
+.big{
+   font-size: 170%;
+}
+.title{
+   border-left: 10px solid #9f166a;
+   padding: 0 0.5em;
+}
+.place{
+   font-size: 110%;
+   margin: 0.5em 0;
+}
+.s{
+	border-left: 4px solid #9f166a;
+	padding: 0 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0.1em;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="g">
+<div class="title">
+<b class="big"> Positivity Concepts on Holomorphic Line Bundles <br>and Theories on Canonical K&aumlhler Metrics</b><br>
+<b class="small">28-31 January, 2018, at Osaka City University.</b>
+</div>
+</b>
+</div>
+<div class="place">
+
+</div>
+
+
+<h2>Program &amp; Abstracts</h2>
+
+<div id="confsche"></div>
+
+<script>
+var speaker=location.search.substring(1);
+
+$(function() {
+
+var myurl='./titleabst_data.html';
+
+var confsche;
+	confsche = $($.ajax({
+ 	       type: 'GET',
+	        url: myurl,
+	        async: false
+	    }).responseText);
+
+$('#confsche').html(confsche);
+
+});
+</script>
+
+
+<br><br>
+<hr>
+Contact: Takayuki Koike (tkoike [at] sci.osaka-cu.ac.jp)
+<br>
+This conference is supported by Leading Initiative for Excellent Young Researchers (No. J171000201).
+<br><br>
+Conference Website: <a href="http://ktakayuki.github.io/conf2018/pchlbtckm.html">http://ktakayuki.github.io/conf2018/pchlbtckm.html</a>
+<br><br>
+</body>
+</html>
+

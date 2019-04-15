@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>講義関連の情報 (小池貴之) </title>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+})
+jQuery(function($) {
+ 
+  //data-hrefの属性を持つtrを選択しclassにclickableを付加
+  $('td[data-href]').addClass('clickable')
+   
+    //クリックイベント
+    .click(function(e) {
+   
+      //e.targetはクリックした要素自体、それがa要素以外であれば
+      if(!$(e.target).is('a')){
+       
+        //その要素の先祖要素で一番近いtdの
+        //data-href属性の値に書かれているURLに遷移する
+        window.open($(e.target).closest('td').data('href'));}
+  });
+});
+</script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+div.g{
+    width: 80%;
+    margin: 2em auto; 
+}
+.sm{
+   font-size: 80%;
+}
+.big{
+   font-size: 170%;
+}
+.title{
+   border-left: 10px solid #9f166a;
+   padding: 0 0.5em;
+}
+.place{
+   font-size: 110%;
+   margin: 0.5em 0;
+}
+.s{
+	border-left: 4px solid #9f166a;
+	padding: 0 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0.1em;
+}
+
+table.type08 {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 0.05;
+	border-left: 1px solid #ccc;
+}
+
+table.type08 thead th {
+	padding: 10px;
+	font-weight: bold;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 2px solid #9f166a;
+	background: #dcdcd1;
+}
+table.type08 tbody th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #ececec;
+}
+table.type08 td {
+	width: 350px;
+	line-height: 10px;
+	vertical-align: center;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.linktd {
+	background-color: #ff3333;
+	cursor : pointer;
+}
+.linktd:hover {
+	background-color: #f72020;
+}
+.type08 tr:nth-child(even) td:not(.linktd), .stripe-table tr:nth-child(even) th {
+  background-color:#f9f9f9;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="g">
+<div class="title">
+<b class="big"> 講義関連の情報 (小池貴之) </b>
+</div>
+</b>
+</div>
+<div class="place">
+
+</div>
+
+<ul class="tab" style="list-style:none;cursor:pointer;">
+    <li><a href="#1">開講中の講義</a></li>
+    <li><a href="#2">過去の講義など</a></li>
+</ul>
+
+<div class="content">
+    <div class="area" id="1">
+
+<h2>開講中の講義</h2>
+
+<h3>複素解析I</h3>
+
+<ul>
+<li>5月13日に講義を行います. </li>
+<li>5月10日が期限のレポート課題があります (提出は3階数学事務室内ポストまで).  こちらについて<font color="red">以下の訂正があります</font>. </li>
+</ul>
+
+<br><b>修正点:</b>
+<ul>
+<li>問3 (2), 連結な部分集合は「\(A_1, A_2, A_3, A_4\)」としていたが, これは誤りで実際には連結成分は二つ. これを改めて「\(A_1, A_2\)」とする. これに応じて「そこから適切に二つを選び取り」の部分は「そこから適切に一つを選び取り」に訂正. また\(f\)の定義域は\(\mathbb{R}\)から\(\{x\in\mathbb{R}\mid x>0\}\)に訂正. </li>
+</ul>
+<br>
+その他レポート課題についてお気づきの点誤植・気になる点などあればお気軽にメール等でお問い合わせください. 
+
+
+<h3>常微分方程式</h3>
+<ul>
+<li>5月13日に講義を行います. </li>
+<li>5月10日が期限のレポート課題があります (提出は3階数学事務室内ポストまで). </li>
+</ul>
+<br>
+レポート課題について気になる点などあればお気軽にメール等でお問い合わせください. 
+
+</div>
+
+<div class="area" id="2">
+
+<h2>過去の講義など</h2>
+
+<h3>過去の講義</h3>
+<ul>
+<li>数理科学C (2018年度, 冬)</li>
+</ul>
+
+<h3>ティーチングアシスタント</h3>
+	<ul>
+		<li>東京大学教養学部*、理学部数学科**におけるティーチングアシスタント.</li>
+	</ul>
+	<table style="text-indent:4em">
+	<tr align="left">
+	<th>平成23年度冬学期</th>
+	<td>数学IB (微積分入門) 演習 (担当：高山茂晴先生)*</td>
+	</tr>
+	<tr align="left">
+	<th>平成24年度夏学期</th>
+	<td>数学IB (微積分入門) 演習 (担当：高山茂晴先生)*</td>
+	</tr>
+	<tr align="left">
+	<th>平成25年度夏学期</th>
+	<td>代数学特別演習I (担当：志甫淳先生)**</td>
+	</tr>
+	<tr align="left">
+	<th>平成26年度夏学期</th>
+	<td>計算数学I (担当：一井信吾先生)**</td>
+	</tr>
+	<tr align="left">
+	<th>平成26年度冬学期</th>
+	<td>計算数学II (担当：一井信吾先生)**</td>
+	</tr>
+	</table>
+
+</div>
+
+
+<br><br>
+<hr><p>最終更新日：2019年4月15日.  </p>
+<p>小池 貴之 (tkoike [at] sci.osaka-cu.ac.jp), 〒558-8585　大阪市住吉区杉本3－3－138 大阪市立大学 大学院理学研究科 数学教室. </p>
+<br><br>
+</body>
+</html>

@@ -25,23 +25,23 @@ $(document).ready(function(){
 	    //スケジュール読み込み
 	    	$("#scheduleen").append($.ajax({
  		       type: 'GET',
-		        url: 'http://http://tkoike.starfree.jp/confdata/koike_sche_en.php',
+		        url: 'http://tkoike.starfree.jp/confdata/koike_sche_en.php',
 		        async: false
 		    }).responseText);
 		$("#schedulejp").append($.ajax({
  		       type: 'GET',
-		        url: 'http://http://tkoike.starfree.jp/confdata/koike_sche_jp.php',
+		        url: 'http://tkoike.starfree.jp/confdata/koike_sche_jp.php',
 		        async: false
 		    }).responseText);
 	    //講演データ読み込み
 	    	$("#talksen").append($.ajax({
  		       type: 'GET',
-		        url: 'http://http://tkoike.starfree.jp/confdata/koike_talks_en.php',
+		        url: 'http://tkoike.starfree.jp/confdata/koike_talks_en.php',
 		        async: false
 		    }).responseText);
 		$("#talksjp").append($.ajax({
  		       type: 'GET',
-		        url: 'http://http://tkoike.starfree.jp/confdata/koike_talks_jp.php',
+		        url: 'http://tkoike.starfree.jp/confdata/koike_talks_jp.php',
 		        async: false
 		    }).responseText);
 	});

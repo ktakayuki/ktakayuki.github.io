@@ -19,7 +19,7 @@ $(function() {
 var N=7;
 //何件づつ読み込むか
 var M=7;
-var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
+var myurl='http://tkoike.starfree.jp/blogtter.php';
 
         var itime;
 	var itweet;
@@ -122,7 +122,7 @@ var myurl='http://tkoike.php.xdomain.jp/blogtter.php';
 }
 </style>
 
-・2017年夏以前の近況（？）は<a href="./old_kinkyo.html" target=”_blank”>こちら</a>に移動しました.
+・2017年夏以前の近況（？）は<a href="./old_kinkyo.html" target=”_blank”>こちら</a>に移動しました. 尚, 2017年7月1日～2019年5月18日の近況は, 残念ながらサーバートラブルにより消えてしまいました...
 
 <div id="text"></div>
 

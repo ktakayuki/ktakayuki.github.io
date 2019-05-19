@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>2019前期 の講義スケジュール (小池貴之) </title>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML"></script>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+})
+jQuery(function($) {
+ 
+  //data-hrefの属性を持つtrを選択しclassにclickableを付加
+  $('td[data-href]').addClass('clickable')
+   
+    //クリックイベント
+    .click(function(e) {
+   
+      //e.targetはクリックした要素自体、それがa要素以外であれば
+      if(!$(e.target).is('a')){
+       
+        //その要素の先祖要素で一番近いtdの
+        //data-href属性の値に書かれているURLに遷移する
+        window.open($(e.target).closest('td').data('href'));}
+  });
+});
+</script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+div.g{
+    width: 80%;
+    margin: 2em auto; 
+}
+.sm{
+   font-size: 80%;
+}
+.big{
+   font-size: 170%;
+}
+.title{
+   border-left: 10px solid #9f166a;
+   padding: 0 0.5em;
+}
+.place{
+   font-size: 110%;
+   margin: 0.5em 0;
+}
+.s{
+	border-left: 4px solid #9f166a;
+	padding: 0 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0.1em;
+}
+
+table.type08 {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 0.05;
+	border-left: 1px solid #ccc;
+}
+
+table.type08 thead th {
+	padding: 10px;
+	font-weight: bold;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 2px solid #9f166a;
+	background: #dcdcd1;
+}
+table.type08 tbody th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #ececec;
+}
+table.type08 td {
+	width: 350px;
+	line-height: 10px;
+	vertical-align: center;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.linktd {
+	background-color: #ff3333;
+	cursor : pointer;
+}
+.linktd:hover {
+	background-color: #f72020;
+}
+.type08 tr:nth-child(even) td:not(.linktd), .stripe-table tr:nth-child(even) th {
+  background-color:#f9f9f9;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="g">
+<div class="title">
+<b class="big"> 2019前期 の講義スケジュール</b>
+</div>
+</b>
+</div>
+<div class="place">
+
+</div>
+
+<ul class="tab" style="list-style:none;cursor:pointer;">
+    <li><a href="#1">複素解析I</a></li>
+    <li><a href="#2">常微分方程式</a></li>
+</ul>
+
+<div class="content">
+    <div class="area" id="1">
+
+<h2>複素解析Iの講義スケジュール</h2>
+
+後半のスケジュールは以下の通りです.<br>
+尚, 7月15日(月)には講義が無く, 代わりにこの週には7月18日(木)に講義があることに注意してください. <br><br>
+
+ <table>
+    <tr>
+      <td>6月3日</td>
+      <td>Cauchyの積分公式と正則関数のregularity, べき級数とTaylor/Maclaurin展開, Moreraの定理. </td>
+    </tr>
+    <tr>
+      <td>6月10日</td>
+      <td>有理型関数とLaurent展開</td>
+    </tr>
+    <tr>
+      <td>6月17日</td>
+      <td>留数定理と留数積分</td>
+    </tr>
+    <tr>
+      <td>6月24日</td>
+      <td>等角写像</td>
+    </tr>
+    <tr>
+      <td>7月1日</td>
+      <td>無限乗積展開と部分分数展開</td>
+    </tr>
+    <tr>
+      <td>7月8日</td>
+      <td>未定</td>
+    </tr>
+    <tr>
+      <td>7月18日</td>
+      <td>未定</td>
+    </tr>
+    <tr>
+      <td>7月22日</td>
+      <td>未定</td>
+    </tr>
+    <tr>
+      <td>7月29日</td>
+      <td>テスト</td>
+    </tr>
+  </table>
+
+<br><br>
+
+<b>参考: 本講義の前半で終えた内容</b><br>
+<ul>
+<li>複素数とその演算の定義, 複素平面, 極座標表示, Riemann球面について. </li>
+<li>複素微分可能性と正則性について (Cauchy-Riemann方程式と調和関数についてを含む). </li>
+<li>複素平面の開集合のpathとJordan閉曲線, それらに沿っての (正則) 関数の線積分. </li>
+<li>Cauchy-Goursat の定理と原始関数, 代数学の基本定理. </li>
+<li>初等関数 (exp, sin, cos,...). </li>
+</ul>
+
+
+</div>
+
+<div class="area" id="2">
+
+<h2>常微分方程式の講義スケジュール</h2>
+
+後半のスケジュールは以下の通りです.<br>
+尚, 7月15日(月)には講義が無く, 代わりにこの週には7月18日(木)に講義があることに注意してください. <br><br>
+
+ <table>
+    <tr>
+      <td>6月3日</td>
+      <td>初等解法その6 - 高階の微分方程式について (リュウビルの微分方程式を含む).</td>
+    </tr>
+    <tr>
+      <td>6月10日</td>
+      <td>定数係数線形微分方程式その1 - 同次2階の場合と微分演算子 (作用素)の扱い. </td>
+    </tr>
+    <tr>
+      <td>6月17日</td>
+      <td>定数係数線形微分方程式その2, 3 - 同次高階の場合, 非同次2階の場合. </td>
+    </tr>
+    <tr>
+      <td>6月24日</td>
+      <td>定数係数線形微分方程式その4 - 初期値問題について</td>
+    </tr>
+    <tr>
+      <td>7月1日</td>
+      <td>変数係数線形微分方程式その1 - 同次2階の場合とロンスキアン, グリーンの公式</td>
+    </tr>
+    <tr>
+      <td>7月8日</td>
+      <td>変数係数線形微分方程式その2 - 非同次2階の場合と境界値問題</td>
+    </tr>
+    <tr>
+      <td>7月18日</td>
+      <td>変数係数線形微分方程式その3 - 高階の場合と連立微分方程式</td>
+    </tr>
+    <tr>
+      <td>7月22日</td>
+      <td>級数解法</td>
+    </tr>
+    <tr>
+      <td>7月29日</td>
+      <td>テスト</td>
+    </tr>
+  </table>
+
+<br><br>
+
+<b>参考: 本講義の前半で終えた内容</b><br>
+<ul>
+<li>常微分方程式とは何かと, それを解くとはどういうことかについて. </li>
+<li>運動方程式などの幾つかの基本的な例. </li>
+<li>リプシッツ連続性を仮定した際のある種の初期条件付き微分方程式の解の存在と一意性 (コーシーの定理, その主張と証明). </li>
+<li>正規型/非正規型という言葉と, 非正規型のときに起こる幾つかの現象 (特に"特異解"について). </li>
+<li>初等解法その1 - 変数分離型のとき.</li>
+<li>初等解法その2 - 同次型のときと, それに帰着できるとき.</li>
+<li>初等解法その3 - 1階線形常微分方程式 (同次/非同次)と, それに帰着できるとき (ベルヌーイ型及びリッカチ型を含む), 及び定数変化法について. </li>
+<li>初等解法その4 - 完全微分方程式 (幾つかの状況下での積分因子の求め方を含む).</li>
+<li>初等解法その5 - 幾つかの特別な形の非正規型常微分方程式 (ダランベール/クレローの微分方程式).</li>
+</ul>
+
+</div>
+
+
+<br><br>
+<hr><p>最終更新日：2019年5月19日.  </p>
+<p>小池 貴之 (tkoike [at] sci.osaka-cu.ac.jp), 〒558-8585　大阪市住吉区杉本3－3－138 大阪市立大学 大学院理学研究科 数学教室. </p>
+<br><br>
+</body>
+</html>

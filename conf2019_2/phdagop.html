@@ -1,0 +1,244 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>Prospects in Higher-dimensional Algebraic Geometry and Open Problems</title>
+<meta charset="UTF-8">
+<meta name="robots" content="noimageindex">
+<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	    $('.area:first').show();
+	    $('.tab li:first').addClass('active');
+	 
+	    $('.tab li').click(function() {
+	        $('.tab li').removeClass('active');
+	        $(this).addClass('active');
+	        $('.area').hide();
+	 
+	        $($(this).find('a').attr('href')).fadeIn();
+	        return false;
+	    });
+})
+jQuery(function($) {
+ 
+  //data-hrefの属性を持つtrを選択しclassにclickableを付加
+  $('td[data-href]').addClass('clickable')
+   
+    //クリックイベント
+    .click(function(e) {
+   
+      //e.targetはクリックした要素自体、それがa要素以外であれば
+      if(!$(e.target).is('a')){
+       
+        //その要素の先祖要素で一番近いtdの
+        //data-href属性の値に書かれているURLに遷移する
+        window.open($(e.target).closest('td').data('href'));}
+  });
+});
+</script>
+
+<style type="text/css">
+h2 {
+	border-top: 3px solid #9f166a;
+	-moz-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	-webkit-box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.16);
+	padding:7px;
+}
+h3 {
+	border-bottom:2px dotted #9f166a;
+	border-left:10px solid #9f166a;padding:7px;
+}
+
+p.resizeimage img { width: 40%; }
+.tab, .tab li, .tab li a {/*クリックするタブ部分*/
+    float: left;
+    padding:5px;
+    margin-right:20px;
+}
+
+.content {/*切り替わる部分を囲うボックス*/
+    clear: both;
+    overflow: hidden;
+/*    width: 300px;*/
+/*    border:1px solid #eee;*/
+/*    height:300px;*/
+}
+
+.area {/*切り替わる部分はまず全部消しておく*/
+    display: none;
+}
+.tab li.active {/*選択中のタブ。色を変える等*/
+    background: #eee;
+}
+
+.tab li.active a{/*選択中のタブのリンクカラー*/
+    color:red;
+}
+div.g{
+    width: 80%;
+    margin: 2em auto; 
+}
+.sm{
+   font-size: 80%;
+}
+.big{
+   font-size: 170%;
+}
+.title{
+   border-left: 10px solid #9f166a;
+   padding: 0 0.5em;
+}
+.place{
+   font-size: 110%;
+   margin: 0.5em 0;
+}
+.s{
+	border-left: 4px solid #9f166a;
+	padding: 0 0.2em;
+	font-size: 1.1em;
+	font-weight: bold;
+	margin: 0 0 0.1em;
+}
+
+table.type08 {
+	border-collapse: collapse;
+	text-align: center;
+	line-height: 0.05;
+	border-left: 1px solid #ccc;
+}
+
+table.type08 thead th {
+	padding: 10px;
+	font-weight: bold;
+	border-top: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	border-bottom: 2px solid #9f166a;
+	background: #dcdcd1;
+}
+table.type08 tbody th {
+	width: 150px;
+	padding: 10px;
+	font-weight: bold;
+	vertical-align: top;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #ececec;
+}
+table.type08 td {
+	width: 350px;
+	line-height: 10px;
+	vertical-align: center;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+}
+.linktd {
+	background-color: #ff3333;
+	cursor : pointer;
+}
+.linktd:hover {
+	background-color: #f72020;
+}
+.type08 tr:nth-child(even) td:not(.linktd), .stripe-table tr:nth-child(even) th {
+  background-color:#f9f9f9;
+}
+</style>
+
+
+</head>
+<body>
+
+<div class="g">
+<div class="title">
+<b class="big"> Prospects in Higher-dimensional <br> Algebraic Geometry and Open Problems</b><br>
+<b class="small">9-12 March, 2020, at Osaka City University.</b>
+</div>
+</b>
+</div>
+<div class="place">
+
+</div>
+
+<ul class="tab" style="list-style:none;cursor:pointer;">
+    <li><a href="#1">Home</a></li>
+    <li><a href="#2">Schedule &amp; Abstracts</a></li>
+    <li><a href="#3">Speakers</a></li>
+    <li><a href="#4">Practical Information</a></li>
+    <li><a href="#5">Organizers</a></li>
+</ul>
+
+<div class="content">
+    <div class="area" id="1">
+
+<h2>Conference Information</h2>
+
+<h3>Information</h3>
+<div>
+<table>
+  <tr>
+    <td><b> Date: </b></td>
+    <td>9-12 March, 2020.</td>
+  </tr>
+  <tr>
+    <td><b>Place:</b></td>
+    <td><a href="http://www.osaka-cu.ac.jp/en/about/access#sugimoto" target="_blank">Osaka City University</a> (Sugimoto Campus), Faculty of Science, Bldg. E, Room F204 (2F). </td>
+  </tr>
+</table>
+</div>
+
+
+</div>
+
+<div class="area" id="2">
+
+<h2>Schedule &amp; Abstracts</h2>
+
+
+</div>
+
+<div class="area" id="3">
+
+<h2> Tentative List of Speakers</h2>
+藤野修(大阪大学) <br>
+權業善範(東京大学) 　<br>
+本多宣博(東京工業大学) <br>
+松村慎一(東北大学)<br>
+岡田拓三(佐賀大学)　<br>
+高木俊輔(東京大学)　  <br>
+田中公(東京大学)　<br>
+谷本祥(熊本大学)<br>
+渡邉究(埼玉大学)　<br>
+山ノ井克俊(大阪大学) <br>
+安田健彦(東北大学)<br>　
+吉川謙一(京都大学)
+</div>
+
+<div class="area" id="4">
+
+<h2>Practical Information</h2>
+
+<h3>Registration</h3>
+To register for this workshop, send an e-mail to T. Koike (tkoike [at] sci.osaka-cu).ac.jp).
+
+</div>
+
+<div class="area" id="5">
+
+<h2>Organizers</h2>
+
+Yoshinori Gongyo (The University of Tokyo)<br>
+Masataka Iwai (The University of Tokyo)<br>
+Takayuki Koike (Osaka City University)<br>
+Shin-ichi Matsumura (Tohoku University)
+
+</div>
+
+
+<br><br>
+<hr>
+This conference is supported by Osaka City University Advanced Mathematical Institute: MEXT Joint Usage/Research Center on Mathematics and Theoretical Physics (文科省共同利用・共同研究, 一般, A, "標準束の幾何学"). 
+<br><br>
+Last updated on November 23, 2019.
+<br><br>
+</body>
+</html>

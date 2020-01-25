@@ -1,0 +1,188 @@
+\documentclass[a4]{article}
+\setlength{\topmargin}{-1.3cm}
+\addtolength{\textheight}{4cm}
+\setlength{\oddsidemargin}{-0.4truemm}  
+\setlength{\evensidemargin}{-0.4truemm} 
+\addtolength{\textwidth}{40truemm} 
+\newcommand{\todayd}{\the\year/\the\month/\the\day}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{graphicx}
+%\usepackage[dvips]{color}
+\usepackage[dvipdfm, usenames]{color}
+\usepackage[all]{xy}
+\usepackage{comment}
+\usepackage{setspace}
+\usepackage{utf}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+
+
+%%%%%%%%% Theorem-like environment %%%%%%%%%%%
+%
+\theoremstyle{plain} %text of this environment is typesetted in italics
+\newtheorem{theorem}{\indent\sc Theorem}[section]
+\newtheorem{lemma}[theorem]{\indent\sc Lemma}
+\newtheorem{corollary}[theorem]{\indent\sc Corollary}
+\newtheorem{proposition}[theorem]{\indent\sc Proposition}
+\newtheorem{claim}[theorem]{\indent\sc Claim}
+\newtheorem{conjecture}[theorem]{\indent\sc Conjecture}
+%
+\theoremstyle{definition} %text of this environment is typesetted in roman letters
+\newtheorem{definition}[theorem]{\indent\sc Definition}
+\newtheorem{remark}[theorem]{\indent\sc Remark}
+\newtheorem{example}[theorem]{\indent\sc Example}
+\newtheorem{notation}[theorem]{\indent\sc Notation}
+\newtheorem{assertion}[theorem]{\indent\sc Assertion}
+\newtheorem{observation}[theorem]{\indent\sc Observation}
+\newtheorem{problem}[theorem]{\indent\sc Problem}
+\newtheorem{question}[theorem]{\indent\sc Question}
+%
+%If a theorem-like environment should not be numbered,
+%add * after \newtheorem, and delete the counter option such as [theorem].
+\newtheorem*{remark0}{\indent\sc Remark}
+%
+%%%%% Proof %%%%%
+\renewcommand{\proofname}{\indent\sc Proof.}
+%The following commands are available in the proof environment:
+%\begin{proof}
+%\end{proof}
+%The end of a proof is marked with a square.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\huge Studies on Pseudoconvexity of General Order}
+\vskip5mm
+{\large 大阪市立大学, 2020/3/8-10}\footnote{This conference is supported by Osaka City University Advanced Mathematical Institute: MEXT Joint Usage/Research Center on Mathematics and Theoretical Physics (共同利用・共同研究, 一般, C, "一般位数の擬凸性の研究"). }
+\end{center}
+
+\vskip8mm
+\noindent{\Large \bf Program}
+\vskip5mm
+\noindent{\bf March 8}
+\vskip2mm
+\noindent {\bf 10:00 -- 10:50 Takeo Ohsawa (Nagoya)}\\
+Extension problems and notions of convexity
+\vskip3mm
+\noindent {\bf 11:00 -- 11:50  Makoto Abe (Hiroshima)}\\
+A Characterization of Subpluriharmonicity for a Function of Several Complex Variables
+\vskip3mm
+\noindent {\bf 13:30--15:00 Thomas Pawlaschyk (Wuppertal)}\\
+On $q$-plurisubharmonic functions in $\mathbb{C}^n$
+\vskip3mm
+\noindent {\bf 15:30 -- 16:30 Jihun Yum (Busan)}\\
+Diederich--Fornaess index and Steinness index for abstract CR-manifolds
+\vskip8mm
+\noindent{\bf March 9}
+\vskip2mm
+\noindent {\bf 10:00 -- 11:30 Thomas Pawlaschyk (Wuppertal)}\\
+On q-pseudoconvex domains in $\mathbb{C}^n$
+\vskip3mm
+\noindent {\bf 13:30 -- 14:30 Makoto Abe (Hiroshima)}\\
+Intermediate pseudoconvexity for unramified Riemann domains over $\mathbb{C}^n$
+\vskip3mm
+\noindent {\bf 14:40 -- 15:40 Kazuko Matsumoto (Tokyo University of Science)}\\
+On the theorems of Rothstein and Sperling concerning continuations of analytic sets
+\vskip3mm
+\noindent {\bf 15:50 -- 16:50 Shun Sugiyama (Hiroshima)}\\
+A new proof of  theorem of Eastwood--Vigna--Suria
+\vskip8mm
+\noindent{\bf March 10}
+\vskip2mm
+\noindent {\bf 9:00 -- 10:30 Thomas Pawlaschyk (Wuppertal)}\\
+On $q$-pseudoconcave sets in $\mathbb{C}^n$
+\vskip3mm
+\noindent {\bf 10:40 -- 11:40 Masanori Adachi (Shizuoka)}\\
+T. B. A. 
+
+
+\newpage
+
+
+\noindent{\Large \bf Abstracts}
+\vskip5mm
+\noindent {\bf Takeo Ohsawa (Nagoya)}\\
+Extension problems and notions of convexity
+\vskip3mm
+Extension theorems from complex analytic subsets play important roles in several complex variables. We shall recall how the solvability of the d-bar equation with $L^2$ estimates leads to extension theorems and report recent results on a rigidity question. We shall also discuss generalizations to $q$-convex manifolds, based on my paper published in 2007.
+\vskip5mm
+\noindent {\bf Makoto Abe (Hiroshima)}\\
+A Characterization of Subpluriharmonicity for a Function of Several Complex Variables
+\vskip3mm
+We give a characterization of a subpluriharmonic function of several complex variables
+in the sense of Fujita (J. Math. Kyoto Univ., {\bf 30}: 637--649, 1990) by using polynomial
+functions of degree at most two.  This is joint work with Shun Sugiyama. 
+\vskip5mm
+\noindent {\bf Thomas Pawlaschyk (Wuppertal)}\\
+On $q$-plurisubharmonic functions in $\mathbb{C}^n$ (March 8)
+\vskip3mm
+I will talk about upper semi-continuous $q$-plurisubharmonic functions in the sense of Hunt-Murray and compare with other notions of generalized convex functions. I will present different characterizations of $q$-plurisubharmonic functions and show approximation techniques. 
+\vskip5mm
+\noindent {\bf Jihun Yum (Busan)}\\
+Diederich--Fornaess index and Steinness index for abstract CR-manifolds
+\vskip3mm
+Let $\Omega$ be a smooth bounded pseudoconvex domain in $\mathbb{C}^n$. 
+The Diederich--Fornaess index and the Steinness index of $\Omega$ are defined by 
+\[
+DF(\Omega) := \sup_\rho \{0 < \eta < 1 : -(-\rho)^\eta\ \text{is}\ \text{strictly}\ \text{plurisubharmonic}\ \text{on}\ \Omega\},
+\]
+\[
+S(\Omega) := \inf_\rho\{\eta > 1 : \rho^\eta\ \text{is}\ \text{strictly}\ \text{plurisubharmonic}\ \text{on}\ \overline{\Omega}^{\complement}\cap U\ \text{for}\ \text{some}\ \text{neighborhood}\ U\ \text{of}\ \partial\Omega\}.
+\]
+Roughly speaking, $DF(\Omega)$ is the supremum of the H\"older exponents of these exhaustions near the boundary, and $S(\Omega)$ is the infimum of the H\"older exponents of positive strictly plurisubharmonic functions in $\overline\Omega^{\complement}$ which approaches to zero on the boundary $\partial\Omega$. We first describe two indices in terms of a special $1$-form on $\partial\Omega$, called the D'Angelo $1$-form. Then we will see how this characterization allows us to define two indices for abstract CR-manifolds of hypersurface type. 
+\vskip5mm
+\noindent {\bf Thomas Pawlaschyk (Wuppertal)}\\
+On q-pseudoconvex domains in $\mathbb{C}^n$  (March 9)
+\vskip3mm
+I will present a list of different characterizations of $q$-pseudoconvex domains which can be defined by, e.g., $q$-plurisubharmonic exhaustion functions. Furthermore, I will give examples of $q$-pseudoconvex domains. 
+\vskip5mm
+\noindent {\bf Makoto Abe (Hiroshima)}\\
+Intermediate pseudoconvexity for unramified Riemann domains over $\mathbb{C}^n$
+\vskip3mm
+We characterize the $q$-pseudoconvexity for unramified Riemann domains over $\mathbb{C}^n$,
+where $1 \leq q \leq n$, by the continuity property which holds for a class of maps whose
+projections to $\mathbb{C}^n$ are families of unidirectionally parameterized $q$-dimensional
+analytic balls written by polynomials of degree at most two. 
+This is joint work with Tadashi Shima and Shun Sugiyama.
+\vskip5mm
+\noindent {\bf Kazuko Matsumoto (Tokyo University of Science)}\\
+On the theorems of Rothstein and Sperling concerning continuations of analytic sets
+\vskip3mm
+We generalize some theorems of Rothstein--Sperling (1966) concerning continuations of analytic sets by using of the notions of pseudoconvex domains of general order (or equivalently, locally $q$-complete domains with corners in the sense of Diederich--Fornaess). 
+
+The results are as follows. \\
+(1) Let $D$ be a bounded domain of pseudoconvex of order $k$ $(0 \leq k \leq n-1)$ in $\mathbb{C}^n$ $(n \geq 2)$ and let $S$ be an irreducible analytic set of dimension
+$m$ in a neighborhood of the boundary $\partial D$. If $m \geq n - k + 1$, then $S$ is
+continuable to an analytic set in a neighborhood of $\overline{D}$.\\
+(2) In addition to (1), suppose that the domain $D$ is defined by $D :=
+\{ z\in \mathbb{C}^n : \varphi(z) < 0\}$ for some $\varphi\colon \mathbb{C}^n \to \mathbb{R}$ which is pseudoconvex exhaustion function of order $k$. 
+If $m \geq \max (n-k, 2)$, then $S$ is continuable to an analytic set in a neighborhood of $\overline{D}$. \\
+(3) The bounds of dimension $m$ of S in (1) and (2) are best.\\
+This is a joint work with O. Fujita (1931-2018). 
+\noindent The three examples in (3) are due to him only.
+\vskip5mm
+\noindent {\bf Shun Sugiyama (Hiroshima)}\\
+A new proof of  theorem of Eastwood--Vigna--Suria
+\vskip3mm
+In this talk, I will explain the relation between $q$-pseudoconvexity and an algebraic condition of cohomology groups. Especially, I will introduce a new proof of theorem of Eastwood--Vigna--Suria. This proof is based on Kajiwara-Kazama's method in 1973.
+\vskip5mm
+\noindent {\bf Thomas Pawlaschyk (Wuppertal)}\\
+On $q$-pseudoconcave sets in $\mathbb{C}^n$  (March 10)
+\vskip3mm
+The $q$-pseudoconcave sets are closed sets in $\mathbb{C}^n$ whose complement is $q$-pseudoconvex. They occur naturally as analytic sets of certain minimal dimension. On the converse, one may ask whether a closed $q$-pseudoconcave set $A$ admits a local foliation by complex submanifolds. I will give a positive answer in the case when $A$ is the graph of a continuous mapping $f\colon \mathbb{C}^n\times\mathbb{R}\to\mathbb{R}\times \mathbb{C}^p$. 
+\vskip5mm
+\noindent {\bf Masanori Adachi (Shizuoka)}\\
+T. B. A. 
+\vskip3mm
+T. B. A. 
+
+
+\end{document}

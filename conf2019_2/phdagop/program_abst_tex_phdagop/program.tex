@@ -1,0 +1,273 @@
+\documentclass[a4]{jarticle}
+\setlength{\topmargin}{-1.3cm}
+\addtolength{\textheight}{4cm}
+\setlength{\oddsidemargin}{-0.4truemm}  
+\setlength{\evensidemargin}{-0.4truemm} 
+\addtolength{\textwidth}{40truemm} 
+\newcommand{\todayd}{\the\year/\the\month/\the\day}
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{graphicx}
+%\usepackage[dvips]{color}
+%\usepackage[dvipdfm, usenames]{color}
+\usepackage[all]{xy}
+\usepackage{comment}
+\usepackage{setspace}
+%\usepackage{utf}
+
+\newcommand{\mathsym}[1]{{}}
+\newcommand{\unicode}[1]{{}}
+
+\newcounter{mathematicapage}
+
+
+%%%%%%%%% Theorem-like environment %%%%%%%%%%%
+%
+\theoremstyle{plain} %text of this environment is typesetted in italics
+\newtheorem{theorem}{\indent\sc Theorem}[section]
+\newtheorem{lemma}[theorem]{\indent\sc Lemma}
+\newtheorem{corollary}[theorem]{\indent\sc Corollary}
+\newtheorem{proposition}[theorem]{\indent\sc Proposition}
+\newtheorem{claim}[theorem]{\indent\sc Claim}
+\newtheorem{conjecture}[theorem]{\indent\sc Conjecture}
+%
+\theoremstyle{definition} %text of this environment is typesetted in roman letters
+\newtheorem{definition}[theorem]{\indent\sc Definition}
+\newtheorem{remark}[theorem]{\indent\sc Remark}
+\newtheorem{example}[theorem]{\indent\sc Example}
+\newtheorem{notation}[theorem]{\indent\sc Notation}
+\newtheorem{assertion}[theorem]{\indent\sc Assertion}
+\newtheorem{observation}[theorem]{\indent\sc Observation}
+\newtheorem{problem}[theorem]{\indent\sc Problem}
+\newtheorem{question}[theorem]{\indent\sc Question}
+%
+%If a theorem-like environment should not be numbered,
+%add * after \newtheorem, and delete the counter option such as [theorem].
+\newtheorem*{remark0}{\indent\sc Remark}
+%
+%%%%% Proof %%%%%
+\renewcommand{\proofname}{\indent\sc Proof.}
+%The following commands are available in the proof environment:
+%\begin{proof}
+%\end{proof}
+%The end of a proof is marked with a square.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{center}
+  {\huge 高次元代数幾何の展望と未解決問題}
+  \vskip2mm
+ {\LARGE Prospects and Open Problems \\ in Higher-dimensional Algebraic Geometry}
+\vskip5mm
+{\large 大阪市立大学 杉本キャンパス 理学部E棟2階 F20, 2020/3/9-12}\footnote{This conference is supported by Osaka City University Advanced Mathematical Institute: MEXT Joint Usage/Research Center on Mathematics and Theoretical Physics (共同利用・共同研究, 一般, A, "標準束の幾何学"). }
+\end{center}
+
+%\vskip5mm
+\noindent{\Large \bf Program}
+\vskip5mm
+
+\noindent{\bf 2020/3/9 (Monday)}
+\vskip2mm
+\noindent {\bf 9:30 - 11:30 藤野 修 (大阪大学)}\\
+On the minimal model program and the Hodge theory
+\vskip2mm
+\noindent {\bf 13:00 - 15:00 權業 善範 (東京大学)}\\
+MMPに関する問題
+\vskip2mm
+\noindent {\bf 15:30 - 17:30 山ノ井 克俊 (大阪大学)}\\
+高次元ネヴァンリンナ理論の未解決問題：第二主要予想について
+\vskip5mm
+
+\noindent{\bf 2020/3/10 (Tuesday)}
+\vskip2mm
+\noindent {\bf 9:30 - 11:30 田中 公 (東京大学)}\\
+On minimal model program in positive characteristic
+\vskip2mm
+\noindent {\bf 13:00 - 15:00 吉川 謙一 (京都大学)}\\
+Some problems related to K3, Enriques, Calabi-Yau, and hyperkahler 
+\vskip2mm
+\noindent {\bf 15:30 - 17:30 本多 宣博 (東京工業大学)}\\
+ツイスター空間に関する問題 
+
+
+\vskip5mm
+
+\noindent{\bf 2020/3/11 (Wednesday)}
+\vskip2mm
+\noindent {\bf 9:30 - 11:30 渡邉 究 (埼玉大学)}\\
+有理曲線を用いたファノ多様体の研究と未解決問題
+\vskip2mm
+\noindent {\bf 13:00 - 15:00 岡田 拓三 (佐賀大学)}\\
+代数多様体の有理性問題について
+\vskip2mm
+\noindent {\bf 15:30 - 17:30 谷本 祥 (熊本大学)}\\
+Higher dimensional varieties with many rational points/rational curves
+
+\vskip5mm
+\noindent{\bf 2020/3/12 (Thursday)}
+\vskip2mm
+\noindent {\bf 9:30 - 11:30 安田 健彦 (東北大学)}\\
+Open problems in the wild McKay correspondence 2020
+\vskip2mm
+\noindent {\bf 13:00 - 15:00 高木 俊輔 (東京大学)}\\
+ F-singularities, Frobenius splitting, and binational geometry 
+\vskip2mm
+\noindent {\bf 15:30 - 17:30 松村 慎一 (東北大学)}\\
+半負曲率を持つ射影多様体の構造定理について
+
+\newpage
+
+
+\noindent{\Large \bf Abstracts}
+\vskip5mm
+
+\noindent {\bf 權業 善範 (東京大学)}\\
+MMPに関する問題
+\vskip3mm
+MMPとファノ多様体に関係した問題を無責任に出す.
+\vskip5mm
+
+
+\noindent {\bf 藤野 修 (大阪大学)}\\
+On the minimal model program and the Hodge theory
+\vskip3mm
+I start with the main result by Birkar--Cascini--Hacon--McKernan on the minimal model program for higher-dimensional complex algebraic varieties.
+ 
+Then I would like to explain some questions on 
+
+(1) minimal model program for projective morphisms between complex analytic spaces and 
+
+(2) existence problem of rational curves on singular varieties. 
+
+I also would like to discuss about 
+
+(3) semipositivity of direct images of relative pluricanonical bundles.
+
+\vskip5mm
+
+\noindent {\bf 山ノ井 克俊 (大阪大学)}\\
+高次元ネヴァンリンナ理論の未解決問題：第二主要予想について
+\vskip3mm
+T.B.A
+\vskip5mm
+
+
+
+\noindent {\bf 田中 公 (東京大学)}\\
+On minimal model program in positive characteristic
+\vskip3mm
+In this talk, we first overview the current status of minimal model 
+program in positive characteristic. We then discuss some open problems 
+on this topic. 
+\vskip5mm
+
+\noindent {\bf 吉川 謙一 (京都大学)}\\
+Some problems related to K3, Enriques, Calabi-Yau, and hyperkahler 
+\vskip3mm
+In the talk, I would like to explain some problems related to K3 surfaces, Enriques surfaces,
+Calabi-Yau manifolds and hyperkahler manifolds, which I think interesting and whose solution
+is not known at least for me. 
+For the moment, I plan to talk about the problems related with 
+the following subjects: 
+BCOV invariant and mirror symmetry at genus one, other holomorphic torsion invariants, 
+moduli spaces, Ricci-flat Kahler metrics.
+
+\vskip5mm
+
+
+\noindent {\bf 本多 宣博 (東京工業大学)}\\
+ツイスター空間に関する問題 
+\vskip3mm
+ツイスター空間は、実4次元多様体の共形幾何を背景に持つ3次元複素多様体であり, コンパクトなものは2つの基本的な例を除いてケーラー計量を持たない, したがって射影代数的でないことが知られている.
+一方, 現在では, 射影代数多様体と双有理型同値なツイスター空間の例が数多く知られている. 
+この講演では, このような意味で代数的なツイスター空間に関する問題や, 
+その周辺の問題に関して議論する. 
+\vskip5mm
+
+\newpage
+\noindent {\bf 渡邉 究 (埼玉大学)}\\
+有理曲線を用いたファノ多様体の研究と未解決問題
+\vskip3mm
+森重文氏による Hartshorne 予想の解決以来, 
+有理曲線の変形理論を用いてファノ多様体を研究することは一般的な手法として知られている. 
+森氏の手法の一般化として J.M. Hwang 氏と N. Mok 氏により varieties of minimal rational
+tangents (VMRT)
+の理論が確立され, 様々な応用が知られている. 
+本講演では VMRT の理論の概説と諸問題について紹介する. 
+また, Hartshorne 予想と VMRT に関連して, ネフ接束をもつファノ多様体に関する Campana-Peternell予想や
+その周辺の問題についても紹介する. 
+\vskip5mm
+
+
+\noindent {\bf 岡田 拓三 (佐賀大学)}\\
+代数多様体の有理性問題について
+\vskip3mm
+代数多様体の有理性問題は代数幾何学における古典的な基本問題である. 高次元代数多様体の有理性に関する重要な結果を解説しつつ,関連する諸問題を提示していきたいと考えている.
+\vskip5mm
+
+
+\noindent {\bf 谷本 祥 (熊本大学)}\\
+Higher dimensional varieties with many rational points/rational curves.
+\vskip3mm
+In the first half of the talk, we will discuss the recent advances on birational geometry of Manin's conjecture. 
+In the second half, we discuss open problems on algebraic varieties with many rational points/rational curves.
+\vskip5mm
+
+
+
+
+\noindent {\bf 安田 健彦 (東北大学)}\\
+Open problems in the wild McKay correspondence 2020
+\vskip3mm
+The wild McKay correspondence is a generalization of the motivic McKay correspondence to arbitrary characteristics. It was formulated and proved by the speaker. This theory relates the stringy invariant of wild quotient singularities with motivic counting of torsors over a punctured formal disk. After reviewing the background and main results of the theory, we discuss open problems concerning subjects including:
+
+1. representation-theoretic characterization of klt quotient singularities,
+
+2. computing nonlinear cases,
+
+3. mixed characteristics,
+
+4. rationality, duality and desingularization,
+
+5. more general groups.
+\vskip5mm
+
+
+
+
+\noindent {\bf 高木 俊輔 (東京大学)}\\
+ F-singularities, Frobenius splitting, and binational geometry 
+\vskip3mm
+F-singularities are singularities in positive characteristic defined using the Frobenius morphism. 
+They conjecturally correspond via reduction modulo p to singularities appearing in complex birational geometry.
+ In the first part of this talk, on the basis of this correspondence, I will survey what is known and what is not known about geometric properties of F-singularities. 
+ In the latter part of this talk, as a global version of the first part, I will discuss geometric properties of Frobenius splitting varieties, especially focusing on Akizuki-Nakano type vanishing theorems.  
+\vskip5mm
+
+\newpage
+\noindent {\bf 松村 慎一 (東北大学)}\\
+半負曲率を持つ射影多様体の構造定理について
+\vskip3mm
+さまざま意味で"非負の曲率"を持つ射影代数多様体のMRC射(maximally rationally connected
+fibration)の構造定理を講演者の成果を中心に概説し, 関連する未解決問題について議論する. 
+
+具体的には, 
+
+(1)擬正な(pseudo-effective)接ベクトル束を持つ多様体, 
+
+(2) 非負の正則断面曲率を持つ多様体, 
+
+(3)数値的に半正値な
+(numerically effective)反標準束を持つKLT対
+
+を考察し, そのMRC射のベースの幾何学, ファイバーの幾何学,
+複素構造の変動について議論する.  証明では, ベクトル束の特異計量, 葉層構造の理論, 有理曲線の幾何学, 順像層の解析的な正値性などが鍵となる.
+講演の一部はGenki Hosono(東北大), Masataka Iwai(東大数理), Frederic Campana(Lorraine),
+Junyan Cao(Jussieu)との共同研究に基づく.
+\vskip5mm
+
+\end{document}
